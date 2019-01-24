@@ -1,0 +1,29 @@
+<%= form_for :Registro, :html => { :method => :get ,:class => "form-horizontal"} do|f| %>
+
+<div class ="form-group">
+	<div class="col-sm-5">
+		
+	</div>
+
+	<div class="col-sm-4">
+			<h1 class="glyphicon glyphicon-user" >Registrate</h1>
+			
+	</div>
+
+	<div class ="col-sm-4">
+		
+	</div>
+	
+</div>
+<div class = "form-group">
+	<div class="col-sm-5">
+		
+	</div>
+	<div class= "col-sm-3
+	">
+		<%= f.text_field :Nombre ,{ :class => "from-control", :placeholder => "Ingrese Nombre"} %>
+		
+	</div>
+
+</div>
+<% end %>
