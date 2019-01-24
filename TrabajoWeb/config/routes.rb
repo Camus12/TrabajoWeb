@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'serviciosadicionales/edicion'
+  get 'serviciosadicionales/lista'
+  get 'serviciosadicionales/estacedicion'
+  get 'serviciosadicionales/estaclista'
   get 'estacionamientos/edicion'
   get 'estacionamientos/lista'
   get 'home/vista'
