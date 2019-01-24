@@ -1,0 +1,94 @@
+<h1>Lista de Estacionamientos</h1>
+
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" }, :url => { :controller => "estacionamientos", :action => "lista" } do |f| %>
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :distrito, "Distrito:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :tipo, "Tipo:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.select :tipo, [["Interior", "INTER"], ["Exterior", "EXTER"], ["Aire Libre", "AIRE"]], { :include_blank => "Seleccione Tipo"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :ubicacion, "Ubicación:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.select :ubicacion, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-2">
+			<%= f.submit "Buscar", :class => "btn btn-primary"%>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to "Registrar", { :controller => "estacionamientos", :action => "edicion", :a => "N" }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Distrito</th>
+					<th>Dirección</th>
+					<th>Tipo</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+		    </thead>
+		    <tbody>
+				<tr>
+					<td>Estacionamiento Don Pedrito</td>
+					<td>San Miguel</td>
+					<td>Av. La Marina 248</td>
+					<td>Interior</td>
+					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+				</tr>
+				<tr>
+					<td>Los Portalitos</td>
+					<td>Miraflores</td>
+					<td>Av. José Pardo 875</td>
+					<td>Exterior</td>
+					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+				</tr>
+				<tr>
+					<td>Estac. Los Suspiros</td>
+					<td>Barranco</td>
+					<td>Av. Morro Solar 1145</td>
+					<td>Aire Libre</td>
+					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+				</tr>
+				<tr>
+					<td>Particular</td>
+					<td>Breña</td>
+					<td>Av. Lima 293</td>
+					<td>Interior</td>
+					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+				</tr>
+		    </tbody>
+	  	</table>
+	</div>
+
+<% end %>
