@@ -1,4 +1,6 @@
 class ServiciosadicionalesController < ApplicationController
+  layout 'dueno'
+  
   def edicion
   end
 

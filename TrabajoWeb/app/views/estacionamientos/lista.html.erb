@@ -1,6 +1,7 @@
 <h1>Lista de Estacionamientos</h1>
 
-<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" }, :url => { :controller => "estacionamientos", :action => "lista" } do |f| %>
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-2">
 			<%= f.label :distrito, "Distrito:" %>
@@ -58,7 +59,7 @@
 					<td>Interior</td>
 					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
 					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
-					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista" } %></td>
 				</tr>
 				<tr>
 					<td>Los Portalitos</td>
@@ -67,7 +68,7 @@
 					<td>Exterior</td>
 					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
 					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
-					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista" } %></td>
 				</tr>
 				<tr>
 					<td>Estac. Los Suspiros</td>
@@ -76,7 +77,7 @@
 					<td>Aire Libre</td>
 					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
 					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
-					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista" } %></td>
 				</tr>
 				<tr>
 					<td>Particular</td>
@@ -85,7 +86,7 @@
 					<td>Interior</td>
 					<td><%= link_to "Editar", { :controller => "estacionamientos", :action => "edicion" } %></td>
 					<td><%= link_to "Eliminar", { :controller => "estacionamientos", :action => "edicion" } %></td>
-					<td><%= link_to "Serv. Adicionales", { :controller => "estacionamientos", :action => "edicion" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista" } %></td>
 				</tr>
 		    </tbody>
 	  	</table>

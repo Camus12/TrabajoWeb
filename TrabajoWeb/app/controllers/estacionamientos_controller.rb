@@ -1,4 +1,6 @@
 class EstacionamientosController < ApplicationController
+  layout 'dueno'
+	
   def edicion
   end
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'alquileres/lista'
   get 'serviciosadicionales/edicion'
   get 'serviciosadicionales/lista'
   get 'serviciosadicionales/estacedicion'
