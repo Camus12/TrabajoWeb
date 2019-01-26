@@ -14,7 +14,7 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-    	
+    		
     </div> 
   </div>
  
@@ -24,7 +24,7 @@
 		
 	<div class="form-group">
 		<div class=" col-sm-3">
-			<%= image_tag("Img1.jpg", :alt => "Los Portales",size: "150x150") %>
+			<%= image_tag("Img1.jpg", :alt => "Los Portales",size: "280x280") %>
 		</div>
 		<div class=" col-sm-9">
 			<div class="form-group">
@@ -40,7 +40,7 @@
 				<%= f.label :fecha, "Fecha de Reserva:" %>
 			</div>
 			<div class="col-sm-6">
-				<%= f.label :fecha, "15/01/2019" %>
+				<%= f.label :fecha, "26/01/2019" %>
 			</div>
 </div>
 			<div>
@@ -88,12 +88,16 @@
 					<%= f.label :pagofin, "S/ 50.00" %>
 				</div>
 			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-2">
+					<%= f.submit "Alquilar Estacionamiento", :class => "btn btn-primary"%>
+				</div>
+
+			</div>
 			</div>
 		</div>
 		
 	</div>
-	
-	
 	
 </div>
 
@@ -103,41 +107,48 @@
 	
 	<div>
 		<div class="form-group">
-			<div class="col-sm-4">
-			<%= f.label :direccion, "Dirección:" %>
+			<div class="col-sm-12">
+			<%= f.label :direccion, "Ubicación en mapa:" %>
 			</div>
-			<div class="col-sm-8">
-			<%= f.label :direccion, "Av. La Marina 2349 - San Miguel" %>
+					
+		</div>
+
+		<div class="form-group">
+		
+			<div class="col-sm-12">
+			<%= f.label :direccion, "Av. Primavera 2456 - Surco" %>
 			</div>
 					
 		</div>
 		
-			<div class="form-group" class="col-sm-4">
+		<div class="form-group" >
+			<div class="col-sm-4">
 				<iframe width="400" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Universidad%20Peruana%20de%20Ciencias%20Aplicadas&key=AIzaSyA-mX5Z7eJL5GKASzo5gSNavXxX748a5Y4" allowfullscreen></iframe>
+			</div>
+			<div  class="col-sm8">
+				<p>Comentarios</p>
+				
+				<div class="col-sm-8">
+					<p>. Es un lugar limpio y ordenado. Cuenta con servicios higienicos para los usuariosy seguridad </p>
+				</div>
+				
+				<div class="col-sm-8">
+					
+					<p>. El establecimiento cuenta con servicios adicionales de calidad. Solo seria bueno que emitan factura </p>
+				</div>
+
+				<div class="col-sm-8">
+					
+					<p>. El lugar es seguro y cuenta con seguridad que trabaja las 24 horas. Por el precio que tiene diría que es la mejor opcion, considerando el distrito dond estan</p>
+				</div>
+
+
 			</div>
 
 
+		</div>
 	</div>
 
-	<div class="form-group" class="col-sm6">
-	
-				
-				<div class="col-sm-offset-4 col-sm-4">
-					<p>Es un lugar limpio y ordenado. Cuenta con servicios higienicos para los usuariosy seguridad </p>
-				</div>
-				
-				<div class="col-sm-offset-4 col-sm-4">
-					
-					<p>El establecimiento cuenta con servicios adicionales de calidad. Solo seria bueno que emitan factura </p>
-				</div>
-
-				<div class="col-sm-offset-4 col-sm-4">
-					
-					<p>El lugar es seguro y cuenta con seguridad que trabaja las 24 horas. Por el precio que tiene diría que es la mejor opcion, considerando el distrito dond estan</p>
-				</div>
-
-
-	</div>
 
 
 </div>

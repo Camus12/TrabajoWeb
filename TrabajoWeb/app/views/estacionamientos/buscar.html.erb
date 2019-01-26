@@ -73,7 +73,8 @@
 
 	<div class="form-group">
 		<div class="col-sm-offset-4 col-sm-2">
-			<%= f.submit "Buscar Estacionamientos", :class => "btn btn-primary"%>
+			
+			<%= link_to "Buscar Estacionamientos", {controller: "estacionamientos", action: "buscar_detalle" }, :class =>"btn btn-success" %>
 		</div>
 
 	</div>
