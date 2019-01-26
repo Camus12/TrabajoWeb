@@ -6,4 +6,7 @@ class EstacionamientosController < ApplicationController
 
   def lista
   end
+
+  def comentar
+  end
 end

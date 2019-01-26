@@ -5,13 +5,15 @@
 		
 	</div>
 
-	<div class="col-sm-4">
+	<div class="col-sm-3">
 			<h1 class="glyphicon glyphicon-user" >Registrate</h1>
 			
 	</div>
 
-	<div class ="col-sm-4">
-		
+
+	<div class="col-sm-3">
+			<h2><%= link_to "Nuevo usuario", controller: "home", action: "registro" %> </h2>
+			
 	</div>
 	
 </div>
@@ -25,5 +27,40 @@
 		
 	</div>
 
+</div>
+<div class = "form-group">
+	<div class="col-sm-5">
+		
+	</div>
+	<div class= "col-sm-3
+	">
+		<%= f.text_field :Contraseña ,{ :class => "from-control", :placeholder => "Ingrese Contraseña"} %>
+		
+	</div>
+
+</div>
+<div class = "form-group">
+	<div class="col-sm-5">
+		
+	</div>
+	<div class= "col-sm-3">
+
+		<%= link_to "Ingresar", {controller: "estacionamientos", action: "lista" }, :class =>"btn btn-success" %>
+		
+		<%= link_to "Admin", {controller: "administrador", action: "principal" }, :class =>"btn btn-success" %>
+
+	</div>
+
+</div>
+<div class = "form-group">
+	<div class="col-sm-4">
+		
+	</div>
+	<div class= "col-sm-6">
+		<%= f.label :olvidarcontra, "¿Olvidaste la Contraseña?" 
+		link_to "click aqui" %> 
+		
+	</div>
+	
 </div>
 <% end %>

@@ -12,6 +12,14 @@ Rails.application.routes.draw do
   get 'home/bajausuario'
   get 'home/actualizaciondeusuario'
   get 'home/index' 
+
+  get 'administrador/principal'
+  get 'publicidad/registro'
+  get 'publicidad/lista'
+  get 'publicidad/edicion'
+  get 'publicidad/eliminar'
+  get 'estacionamientos/comentar'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html  
   root 'home#index'
 end
