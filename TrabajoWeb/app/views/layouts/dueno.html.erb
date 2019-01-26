@@ -47,13 +47,16 @@
 		  </li>
 		  
 		  <li><%= link_to "Búsqueda de alquileres", controller: "alquileres", action: "lista" %></li>
+
+		  <li><%= link_to "Actualizar datos personales", controller: "home", action: "actualizaciondeusuario" %></li>
+
+		  <li><%= link_to "Darme de Baja", controller: "home", action: "bajausuario" %></li>
 		</ul>
 		
 		<ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Contactanos</a></li>
-          <li><a href='/home/login'><span class="glyphicon glyphicon-user"></span>Registrate</a></li>
-          <li><a href="#">Alquila</a></li>
-          <li><a href="#"></a></li>
+        	<li><a href="#"></a></li>
+         	<li><%= link_to "Logout", controller: "home", action: "index" %> </li>
+         	<li><a href="#"></a></li>
         </ul>
 		
       </div>
