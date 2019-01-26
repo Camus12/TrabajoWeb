@@ -6,4 +6,8 @@ class EstacionamientosController < ApplicationController
 
   def lista
   end
+
+  def buscar
+  	
+  end
 end

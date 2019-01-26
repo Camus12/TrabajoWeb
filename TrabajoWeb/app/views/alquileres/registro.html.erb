@@ -1,0 +1,147 @@
+
+
+
+	
+
+<head> 
+</head>
+
+<body>
+<h1>Registro de Alquiler</h1>
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+<div>
+	 
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    	
+    </div> 
+  </div>
+ 
+
+</div>
+<div>
+		
+	<div class="form-group">
+		<div class=" col-sm-3">
+			<%= image_tag("Img1.jpg", :alt => "Los Portales",size: "150x150") %>
+		</div>
+		<div class=" col-sm-9">
+			<div class="form-group">
+			<div class=" col-sm-6">
+			<%= f.label :descripcion, "Nombre Descriptivo:" %>
+			</div>
+			<div class="col-sm-6">
+				<%= f.label :descripcion, "Estacionamiento Los Portales" %>
+			</div>
+			</div>
+			<div class="form-group">
+			<div class="col-sm-6">
+				<%= f.label :fecha, "Fecha de Reserva:" %>
+			</div>
+			<div class="col-sm-6">
+				<%= f.label :fecha, "15/01/2019" %>
+			</div>
+</div>
+			<div>
+				<div class="form-group">
+				<div class=" col-sm-6">
+					<%= f.label :hora, "Hora de Reserva:" %>
+				</div>
+				<div class="col-sm-6">
+					<%= f.label :hora, "15:00" %>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class=" col-sm-6">
+					<%= f.label :servicioadicional, "Servicios Adicionales:" %>
+				</div>
+				<div class="input-group mb-6">
+			  		<div class="input-group-prepend">
+		  				 <div class="input-group-text">
+		    		  		<input type="checkbox">
+		    		  		<%= f.label :servicio, "Lavado de auto" %> 
+		   		 		</div>
+		   		 		 <div class="input-group-text">
+		    		  		<input type="checkbox"> 
+		    		  		<%= f.label :servicio, "Encerado" %> 
+		   		 		</div>
+		   		 		  <div class="input-group-text">
+		    		  		<input type="checkbox"> 
+		    		  		<%= f.label :servicio, "Cambio de aceite" %> 
+		   		 		 </div>
+		   		 		 <div class="input-group-text">
+		    		  		<input type="checkbox"> 
+		    		  		<%= f.label :servicio, "Aspirado" %> 
+		   		 		 </div>
+		  			</div>
+		 		 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class=" col-sm-6">
+					<%= f.label :pagofin, "Monto Final:" %>
+				</div>
+				<div class="col-sm-6">
+					<%= f.label :pagofin, "S/ 50.00" %>
+				</div>
+			</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	
+</div>
+
+</div>
+
+<div>
+	
+	<div>
+		<div class="form-group">
+			<div class="col-sm-4">
+			<%= f.label :direccion, "Dirección:" %>
+			</div>
+			<div class="col-sm-8">
+			<%= f.label :direccion, "Av. La Marina 2349 - San Miguel" %>
+			</div>
+					
+		</div>
+		
+			<div class="form-group" class="col-sm-4">
+				<iframe width="400" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Universidad%20Peruana%20de%20Ciencias%20Aplicadas&key=AIzaSyA-mX5Z7eJL5GKASzo5gSNavXxX748a5Y4" allowfullscreen></iframe>
+			</div>
+
+
+	</div>
+
+	<div class="form-group" class="col-sm6">
+	
+				
+				<div class="col-sm-offset-4 col-sm-4">
+					<p>Es un lugar limpio y ordenado. Cuenta con servicios higienicos para los usuariosy seguridad </p>
+				</div>
+				
+				<div class="col-sm-offset-4 col-sm-4">
+					
+					<p>El establecimiento cuenta con servicios adicionales de calidad. Solo seria bueno que emitan factura </p>
+				</div>
+
+				<div class="col-sm-offset-4 col-sm-4">
+					
+					<p>El lugar es seguro y cuenta con seguridad que trabaja las 24 horas. Por el precio que tiene diría que es la mejor opcion, considerando el distrito dond estan</p>
+				</div>
+
+
+	</div>
+
+
+</div>
+
+	
+<% end %>
+</body>

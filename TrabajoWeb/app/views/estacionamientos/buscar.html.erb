@@ -1,0 +1,81 @@
+<h1>Buscar Estacionamientos</h1>
+
+
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+	<div class="form-group">
+		<div class= "col-sm-2">
+			<%= f.label :distrito, "Distrito:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+		</div>
+
+		<div class="col-sm-2">
+			<%= f.label :fechaini, "Fecha de Inicio:" %>
+		</div>
+
+		<div class="col-sm-2">
+			<%= f.date_field(:fechaini, value: Date.today) %>
+		</div>
+		
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :tipo, "Tipo:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :tipo, [["Interior", "INTER"], ["Exterior", "EXTER"], ["Aire Libre", "AIRE"]], { :include_blank => "Seleccione Tipo"}, {:class => "form-control"}  %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.label :fechafin, "Fecha Final:" %>
+		</div>
+
+		<div class="col-sm-2">
+			<%= f.date_field(:fechafin, value: Date.today) %>
+		</div>
+
+
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :ubicacion, "Ubicación:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :ubicacion, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.label :hora, "Hora:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :hora, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+					<%= f.label :precio, "Precio por hora:" %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.text_field :precio, { :class => "form-control", :placeholder => "Precio" } %>
+		</div>
+
+
+		<div class="col-sm-2">
+			<%= f.label :puntuacion, "Puntuación:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :puntuacion,  [["1"], ["2"], ["3"],["4"],["5"]], { :include_blank => "Seleccione Puntuación"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-2">
+			<%= f.submit "Buscar Estacionamientos", :class => "btn btn-primary"%>
+		</div>
+
+	</div>
+
+<% end %>
