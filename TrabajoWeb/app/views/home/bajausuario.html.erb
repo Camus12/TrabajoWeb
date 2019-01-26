@@ -1,2 +1,70 @@
-<h1>Home#bajausuario</h1>
-<p>Find me in app/views/home/bajausuario.html.erb</p>
+<h1>Darme de Baja</h1>
+<%= form_for :DarmeBaja, :html => { :method => :get, :class => "form-horizontal"}  do|f|%>
+
+<h3>Porque es importante tu opinión, queremos saber el motivo de baja para seguir mejorando
+</h3>
+
+<div class="form-group">
+	<div class="col-sm-1">
+		</div>
+		<div class="col-sm-3">
+	<div <div class="checkbox">
+  		<label><input type="checkbox" value="">No encuentra Estacionamiento</label>
+		</div>
+	</div>
+	</div>
+<div class="form-group">
+	<div class="col-sm-1">
+		</div>
+		<div class="col-sm-3">
+	<div class="checkbox">
+ 		 <label><input type="checkbox" value="">El alquier es muy caro</label>
+	</div>
+	</div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-1">
+		</div>
+		<div class="col-sm-3">
+	<div class="checkbox ">
+  		<label><input type="checkbox" value="">La pagina no es amigable</label>
+	</div>
+	</div>
+	</div>
+	<div class="form-group">
+	<div class="col-sm-1">
+		</div>
+		<div class="col-sm-3">
+	<div class="checkbox ">
+  		<label><input type="checkbox" value="">Otro</label>
+	</div>
+	</div>
+	
+
+</div>
+
+
+
+
+<div class="form-group">
+  <label for="comment">Comentario:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+
+
+
+
+<div class ="form-group">
+	<div class="col-sm-2">
+		</div>
+		<div class="col-sm-2">
+		<%=f.submit "Cancelar", :class => "btn btn-danger"%>
+		</div>
+
+		<div class="col-sm-2">
+			<%=f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+
+</div>
+
+<%end%>
