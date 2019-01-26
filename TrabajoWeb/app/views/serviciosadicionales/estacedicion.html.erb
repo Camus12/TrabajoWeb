@@ -1,0 +1,43 @@
+<h1>Edición de Servicios Adicionales por Estacionamiento</h1>
+
+<%= form_for :upc, :html => {:method => :get, :class => "form-horizontal"} do |f| %>
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :Estacionamiento, "Estacionamiento:" %>
+		</div>
+		<div class="col-sm-6">
+			<%= f.text_field :Estacionamiento, { :class => "form-control", :disabled => true } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :tipo, "Tipo:" %>
+		</div>
+		<div class="col-sm-3">
+			<%= f.select :tipo, [["Lavado de Vehiculo", "1"], ["Revisión de Llantas", "2"], ["Encerado", "3"]], { :include_blank => "Seleccione Tipo"}, {:class => "form-control"}  %>
+		</div>
+
+		<div class="col-sm-1">
+			<%= f.label :tarifa, "Tarifa:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.text_field :tarifa, { :class => "form-control", :placeholder => "Tarifa" } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :descripcion, "Descripción:" %>
+		</div>
+		<div class="col-sm-6">
+			<%= f.text_area :descripcion, { :rows => 4, :class => "form-control", :disabled => true } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-4">
+			<%= f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+	</div>
+<% end %>

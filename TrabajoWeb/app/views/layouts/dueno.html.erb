@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TrabajoWeb</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "Estaciona Aqui", root_path, :class => "navbar-brand" %>
+        </div>
+		
+		<ul class="nav navbar-nav">
+		  <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Estacionamientos
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			  <li><%= link_to "Registrar estacionamiento", controller: "estacionamientos", action: "edicion" %></li>
+			  <li><%= link_to "Lista de estacionamientos", controller: "estacionamientos", action: "lista" %></li>
+			</ul>
+		  </li>
+		  
+		  <li class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios Adicionales
+			<span class="caret"></span></a>
+			<ul class="dropdown-menu">
+			  <li><%= link_to "Registro de Servicios Adicionales", controller: "serviciosadicionales", action: "edicion" %></li>
+			  <li><%= link_to "Lista de Servicios Adicionales", controller: "serviciosadicionales", action: "lista" %></li>
+			</ul>
+		  </li>
+		  
+		  <li><%= link_to "Búsqueda de alquileres", controller: "alquileres", action: "lista" %></li>
+		</ul>
+		
+		<ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Contactanos</a></li>
+          <li><a href='/home/login'><span class="glyphicon glyphicon-user"></span>Registrate</a></li>
+          <li><a href="#">Alquila</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+		
+      </div>
+    </nav>
+	
+    <div class="container">
+        <%= yield %>
+    </div>
+  </body>
+</html>
