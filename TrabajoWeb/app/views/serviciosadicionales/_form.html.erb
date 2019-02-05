@@ -1,12 +1,11 @@
-<h1>Edición de Servicios Adicionales</h1>
 
-<%= form_for :upc, :html => {:method => :get, :class => "form-horizontal"} do |f| %>
+<%= form_for @servicioadicional, :html => {:class => "form-horizontal"} do |f| %>
 	<div class="form-group">
 		<div class="col-sm-2">
-			<%= f.label :tipo, "Tipo:" %>
+			<%= f.label :tiposervicio, "Tipo:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.text_field :tipo, { :class => "form-control", :placeholder => "Ingrese Tipo de Servicio" } %>
+			<%= f.text_field :tiposervicio, { :class => "form-control", :placeholder => "Ingrese Tipo de Servicio" } %>
 		</div>
 	</div>
 
@@ -20,8 +19,11 @@
 	</div>
 
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-4">
+		<div class="col-sm-offset-2 col-sm-2">
 			<%= f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
 		</div>
 	</div>
 <% end %>
