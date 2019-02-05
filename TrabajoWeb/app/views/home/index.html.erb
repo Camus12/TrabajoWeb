@@ -31,8 +31,11 @@
 		<div class="row">
 			<div class="input-group col-sm-offset-2 col-sm-8 col-sm-offset-2">
 				<%= f.text_field :direccion, { :class => "form-control input-lg", :placeholder => "Ingrese estacionamiento a buscar" } %>
+
 				<span class="input-group-btn">
-					<%= f.submit "Buscar", :class => "btn btn-primary input-lg", :onclick => "return _onclickModal();", :id => "btnBuscar" %>
+					
+					<%= link_to "Buscar", {controller: "estacionamientos", action: "buscar_detalle" }, :class =>"btn btn-primary input-lg" %>
+						
 				</span>
 			</div>
 		</div>

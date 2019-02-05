@@ -29,6 +29,25 @@ ActiveRecord::Schema.define(version: 2019_02_04_185223) do
     t.string "distrito"
   end
 
+  create_table "personas", force: :cascade do |t|
+    t.integer "codigopersona"
+    t.string "nombre"
+    t.string "apepaterno"
+    t.string "apematerno"
+    t.boolean "sexo"
+    t.string "tipodocumento"
+    t.integer "numerodocumento"
+    t.boolean "tipousuario"
+    t.string "correo"
+    t.string "contraseña"
+    t.date "fechanacimiento"
+    t.integer "numerocel"
+    t.string "distrito"
+    t.string "direccion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "serviciosadicionales", force: :cascade do |t|
     t.integer "codigopersona"
     t.string "tiposervicio"
