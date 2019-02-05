@@ -1,18 +1,17 @@
-<h1>Edición de Estacionamiento</h1>
-
 <style type="text/css">
 	td { 
     	padding: 2px;
 	}
 </style>
 
-<%= form_for :upc, :html => {:method => :get, :class => "form-horizontal"} do |f| %>
+<%= form_for @estacionamiento, :html => {:class => "form-horizontal"} do |f| %>
+
 	<div class="form-group">
 		<div class="col-sm-2">
-			<%= f.label :nombre, "Nombre:" %>
+			<%= f.label :nombredescriptivo, "Nombre:" %>
 		</div>
 		<div class="col-sm-6">
-			<%= f.text_field :nombre, { :class => "form-control", :placeholder => "Ingrese Nombre del Estacionamiento" } %>
+			<%= f.text_field :nombredescriptivo, { :class => "form-control", :placeholder => "Ingrese Nombre del Estacionamiento" } %>
 		</div>
 	</div>
 
@@ -27,10 +26,10 @@
 
 	<div class="form-group">
 		<div class="col-sm-2">
-			<%= f.label :googlemaps, "Google Maps:" %>
+			<%= f.label :direcciongooglemaps, "Google Maps:" %>
 		</div>
 		<div class="col-sm-10">
-			<%= f.text_field :googlemaps, { :class => "form-control", :placeholder => "Ingrese la Dirección del Google Maps" } %>
+			<%= f.text_field :direcciongooglemaps, { :class => "form-control", :placeholder => "Ingrese la Dirección del Google Maps" } %>
 		</div>
 	</div>
 
@@ -47,25 +46,25 @@
 
 			<div class="form-group">
 				<div class="col-sm-4">
-					<%= f.label :telefono, "Teléfono:" %>
+					<%= f.label :numerotelefono, "Teléfono:" %>
 				</div>
 				<div class="col-sm-4">
-					<%= f.text_field :telefono, { :class => "form-control", :placeholder => "Ingrese el Teléfono" } %>
+					<%= f.text_field :numerotelefono, { :class => "form-control", :placeholder => "Ingrese el Teléfono" } %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-sm-4">
-					<%= f.label :precio, "Precio por hora:" %>
+					<%= f.label :precioporhora, "Precio por hora:" %>
 				</div>
 				<div class="col-sm-3">
-					<%= f.text_field :precio, { :class => "form-control", :placeholder => "Precio" } %>
+					<%= f.text_field :precioporhora, { :class => "form-control", :placeholder => "Precio" } %>
 				</div>
 			</div>
 
 			<div class="form-group">
 				<div class="col-sm-4">
-					<%= f.label :dimensiones, "Dimensiones:" %>
+					<%= f.label "Dimensiones:" %>
 				</div>
 				<div class="col-sm-2">
 					<%= f.label :largo %>
@@ -108,7 +107,7 @@
 
 			<div class="form-group">
 				<div class="col-sm-2">
-					<%= f.submit "Cargar Fotos", :class => "btn btn-primary"%>
+					<%= f.submit "Cargar Fotos", :class => "btn btn-primary" %>
 				</div>
 			</div>
 
@@ -143,8 +142,11 @@
 	</div>
 
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-4">
+		<div class="col-sm-offset-2 col-sm-2">
 			<%= f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
 		</div>
 	</div>
 
