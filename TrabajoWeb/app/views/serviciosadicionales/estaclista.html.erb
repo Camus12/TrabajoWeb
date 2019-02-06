@@ -1,0 +1,57 @@
+<h1>Servicios Adicionales del Estacionamiento</h1>
+
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+	
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :Estacionamiento, "Estacionamiento:" %>
+		</div>
+		<div class="col-sm-6">
+			<%= f.text_field :Estacionamiento, { :class => "form-control", :disabled => true } %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-10 col-sm-2">
+			<%= link_to "Registrar", { :controller => "serviciosadicionales", :action => "estacedicion", :a => "N" }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+	
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Tipo</th>
+					<th>Tarifa</th>
+					<th>Descripción</th>
+					<th></th>
+					<th></th>
+				</tr>
+		    </thead>
+		    <tbody>
+				<tr>
+					<td>Lavado de Vehículo</td>
+					<td>10.00</td>
+					<td>Con agua a presión y champú</td>
+					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
+				</tr>
+				<tr>
+					<td>Revisión de LLantas</td>
+					<td>2.00</td>
+					<td>Con medida de presión</td>
+					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
+				</tr>
+				<tr>
+					<td>Encerado</td>
+					<td>30.00</td>
+					<td>Usamos productos Sonax</td>
+					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
+					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
+				</tr>
+		    </tbody>
+	  	</table>
+	</div>
+	
+<% end %>

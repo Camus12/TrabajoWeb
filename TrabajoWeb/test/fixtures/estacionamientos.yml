@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigopersona: 1
+  nombredescriptivo: MyString
+  direccion: MyString
+  direcciongooglemaps: MyString
+  numerotelefono: MyString
+  precioporhora: 9.99
+  largo: 9.99
+  ancho: 9.99
+  altura: 9.99
+  tipo: MyString
+  ubicacion: MyString
+
+two:
+  codigopersona: 1
+  nombredescriptivo: MyString
+  direccion: MyString
+  direcciongooglemaps: MyString
+  numerotelefono: MyString
+  precioporhora: 9.99
+  largo: 9.99
+  ancho: 9.99
+  altura: 9.99
+  tipo: MyString
+  ubicacion: MyString

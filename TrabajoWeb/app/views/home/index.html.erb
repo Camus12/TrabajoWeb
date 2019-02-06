@@ -1,0 +1,56 @@
+<style>
+	body {
+		background-image: url(/assets/background.jpg);
+	}
+
+	html, body{
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.vertical-center {
+		min-height: 80%;
+		min-height: 80vh; /*1vh = 1% */
+		display: flex;
+		align-items: center;
+	}
+
+	.modal-header, h4, .close {
+		background-color: #5cb85c;
+		color: white !important;
+		text-align: center;
+		font-size: 20px;
+	}
+</style>
+
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" }, :url => { :controller => "home", :action => "index" } do |f| %>
+
+<div class="vertical-center">
+	<div class="container">
+		<div class="row">
+			<div class="input-group col-sm-offset-2 col-sm-8 col-sm-offset-2">
+				<%= f.text_field :direccion, { :class => "form-control input-lg", :placeholder => "Ingrese estacionamiento a buscar" } %>
+
+				<span class="input-group-btn">
+					
+					<%= link_to "Buscar", {controller: "estacionamientos", action: "buscar_detalle" }, :class =>"btn btn-primary input-lg" %>
+						
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+<% end %>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		if (menu != null) {
+			$("#" + menu).addClass('active');
+		}
+	});
+</script>
