@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_220020) do
+ActiveRecord::Schema.define(version: 2019_02_04_064205) do
+
+  create_table "alquilers", force: :cascade do |t|
+    t.integer "codigopersona"
+    t.integer "codigoestacionamiento"
+    t.datetime "inicioalquiler"
+    t.datetime "finalquiler"
+    t.decimal "precioporhora"
+    t.decimal "preciototal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "estacionamientos", force: :cascade do |t|
     t.integer "codigopersona"
