@@ -1,0 +1,36 @@
+<h1>Servicios Adicionales</h1>
+
+<%= form_for :serviciosadicionales, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-10 col-sm-2">
+			<%= link_to "Registrar", { :action => "new" }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+	
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Tipo</th>
+					<th>Descripción</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+		    </thead>
+		    <tbody>
+		    	<% @serviciosadicionales.each do |servicio| %>
+		    	<tr>
+					<td><%= servicio.tiposervicio %></td>
+					<td><%= servicio.descripcion %></td>
+					<td><%= link_to "Ver", :action => :show, :id => servicio.id %></td>
+					<td><%= link_to "Editar", :action => :edit, :id => servicio.id %></td>
+					<td><%= link_to "Eliminar", { :action => :destroy, :id => servicio.id }, :method => :delete, :data => { :confirm => '¿Estas seguro?' } %></td>
+				</tr>
+		    	<% end %>
+		    </tbody>
+	  	</table>
+	</div>
+	
+<% end %>

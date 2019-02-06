@@ -1,12 +1,18 @@
 <h1>Actualizar Datos</h1>
-<%= form_for :Actualizar, :html =>{ :method => :get, :class => "form-horizontal"} do |f|	%>
+
+
+
+
+
+<%= form_for :Actualizar, :html =>{ :method => :get, :class => "form-horizontal"}do |f|	%>
+  
 <div class ="form-group">
 		<div class = "col-sm-2">
-			<%=f.label :Nombre %>
+			<%=f.label :nombre %>
 		 </div>
 	
 		<div class ="col-sm-8">
-		 	<%=f.text_field :Nombre, { :class => " form-control", :placeholder => "Ingrese Nombre"} %>
+		 	<%=f.text_field :nombre, { :class => " form-control", :placeholder => "Ingrese Nombre"} %>
 		 </div>
 		 <div class = "col-sm-2">
 		 </div>
@@ -14,10 +20,10 @@
 
 	 <div class ="form-group">
 			<div class ="col-sm-2">
-			<%=f.label :ApellidoP,"Apellido Paterno" %> 
+			<%=f.label :apepaterno,"Apellido Paterno" %> 
 			</div>
 			<div class ="col-sm-8">
-		 	<%=f.text_field :ApellidoP, { :class => " form-control", :placeholder => "Ingrese Apellido Paterno"} %>
+		 	<%=f.text_field :apepaterno, { :class => " form-control", :placeholder => "Ingrese Apellido Paterno"} %>
 			 </div>
 			  <div class = "col-sm-2">
 		 </div>
@@ -26,10 +32,10 @@
 
 	  <div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :ApellidoM,"Apellido Materno" %> 
+		<%=f.label :apematerno,"Apellido Materno" %> 
 		</div>
 		<div class ="col-sm-8">
-		 	<%=f.text_field :ApellidoM, { :class => " form-control", :placeholder => "Ingrese Apellido Materno"} %>
+		 	<%=f.text_field :apematerno, { :class => " form-control", :placeholder => "Ingrese Apellido Materno"} %>
 		 </div>
 		  <div class = "col-sm-2">
 		 </div>
@@ -37,7 +43,7 @@
 	</div> 
   	<div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :Sexo,"Sexo" %> 
+		<%=f.label :sexo,"Sexo" %> 
 		</div>
 		<div class="col-sm-10">
 			<label class="radio-inline"><input type="radio" name="Tipo" checked>Hombre</label>
@@ -48,25 +54,25 @@
 
 	<div class ="form-group">
 		<div class ="col-sm-2">
-			<%=f.label :Tipo_Doc,"Tipo de Documento" %>
+			<%=f.label :tipodocumento,"Tipo de Documento" %>
 		</div>
 		<div class ="col-sm-4">
-			<%= f.select :Tipo_Doc, [["DNI",1],["Pasaporte",2],["CarneExtra",3]], { :include_blank => "Seleccione Tipo Doc"},{:class => "form-control"} %>
+			<%= f.select :tipodocumento, [["DNI",1],["Pasaporte",2],["CarneExtra",3]], { :include_blank => "Seleccione Tipo Doc"},{:class => "form-control"} %>
 		</div>
 
 		
 		<div class="col-sm-4">
-			<%=f.text_field :Num_Doc,{ :class => "form-control", :placeholder =>"Ingrese Numero de Documento"} %>
+			<%=f.text_field :numerodocumento,{ :class => "form-control", :placeholder =>"Ingrese Numero de Documento"} %>
 		</div>
 
 	</div>
 
 		<div class ="form-group">
 		<div class ="col-sm-2">
-			<%=f.label :Distrito,"Distrito" %>
+			<%=f.label :distrito,"Distrito" %>
 		</div>
 		<div class ="col-sm-4">
-			<%= f.select :Tipo_Doc, [["San Luis",1],["San Borja",2],["Surco",3]], { :include_blank => "Seleccione Distrito"},{:class => "form-control"} %>
+			<%= f.select :distrito, [["San Luis",1],["San Borja",2],["Surco",3]], { :include_blank => "Seleccione Distrito"},{:class => "form-control"} %>
 		</div>
 
 		
@@ -77,10 +83,10 @@
 
 	  <div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :Dirreccion,"Dirreccion" %> 
+		<%=f.label :direccion,"Dirreccion" %> 
 		</div>
 		<div class ="col-sm-8">
-		 	<%=f.text_field :Dirreccion, { :class => " form-control", :placeholder => "Ingrese Dirreccion"} %>
+		 	<%=f.text_field :direccion, { :class => " form-control", :placeholder => "Ingrese Dirreccion"} %>
 		 </div>
 		  <div class = "col-sm-2">
 		 </div>
@@ -90,10 +96,10 @@
 
 	  <div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :Correoconf," Correo" %> 
+		<%=f.label :correo," Correo" %> 
 		</div>
 		<div class ="col-sm-8">
-		 	<%=f.text_field :Correo, { :class => " form-control", :placeholder => "Ingrese Correo"} %>
+		 	<%=f.text_field :correo, { :class => " form-control", :placeholder => "Ingrese Correo"} %>
 		 </div>
 		  <div class = "col-sm-2">
 		 </div>
@@ -103,10 +109,10 @@
 
 		  <div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :Contraseña,"Contraseña" %> 
+		<%=f.label :contraseña,"Contraseña" %> 
 		</div>
 		<div class ="col-sm-8">
-		 	<%=f.text_field :Contraseña, { :class => " form-control", :placeholder => "Ingrese Contraseña"} %>
+		 	<%=f.text_field :contraseña, { :class => " form-control", :placeholder => "Ingrese Contraseña"} %>
 		 </div>
 		  <div class = "col-sm-2">
 		 </div>
@@ -116,10 +122,10 @@
 
 		  <div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :Celular,"Ingrese Telefono" %> 
+		<%=f.label :numerocel,"Ingrese Telefono" %> 
 		</div>
 		<div class ="col-sm-8">
-		 	<%=f.text_field :Celular, { :class => " form-control", :placeholder => "Ingrese Telefono"} %>
+		 	<%=f.text_field :numerocel, { :class => " form-control", :placeholder => "Ingrese Telefono"} %>
 		 </div>
 		  <div class = "col-sm-2">
 		 </div>
@@ -128,7 +134,7 @@
 
 	<div class ="form-group">
 		<div class ="col-sm-2">
-		<%=f.label :Fecha,"Fecha Nacimiento" %> 
+		<%=f.label :fechanacimiento,"Fecha Nacimiento" %> 
 		</div>
 		
    

@@ -42,7 +42,16 @@ class EstacionamientosController < ApplicationController
   end
 
   def index
-    @estacionamientos = Estacionamiento.all
+    
+    if params[:estacionamiento] != nil then
+      @estacionamientos = Estacionamiento.find_by_sql(["SELECT * FROM estacionamientos WHERE distrito LIKE ? AND tipo LIKE ? AND ubicacion LIKE ?", params[:estacionamiento][:distrito], params[:estacionamiento][:tipo], params[:estacionamiento][:ubicacion]])
+    else
+      @estacionamientos = Estacionamiento.all
+
+      ##Sirve para obtener los primeros N registros
+      #@estacionamientos = Estacionamiento.take(0)
+    end
+    
   end
 
   

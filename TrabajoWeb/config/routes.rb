@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'alquileres/lista'
   get 'alquileres/registro'
-  get 'serviciosadicionales/edicion'
-  get 'serviciosadicionales/lista'
   get 'serviciosadicionales/estacedicion'
   get 'serviciosadicionales/estaclista'
   get 'estacionamientos/buscar'
@@ -22,7 +20,9 @@ Rails.application.routes.draw do
   get 'publicidad/eliminar'
 
   resources "estacionamientos"
+  resources "serviciosadicionales"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html  
   root 'home#index'
+  resources "home"
 end
