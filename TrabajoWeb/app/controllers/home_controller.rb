@@ -1,37 +1,62 @@
 class HomeController < ApplicationController
-  def vista
-    @persona = Persona.find(params[:id])
-  end
 
-  def login
-  end
 
-  def registro
+
+  def new
     @persona = Persona.new
   end
-
 
   def create
     @persona = Persona.new(persona_params)
 
     if @persona.save
-      redirect_to :action => :index, :id => @persona.codigopersona
+      redirect_to :action => :home, :id => @persona.id
     else
-      render "registro"
+      render "new"  
     end
   end
 
-  def bajausuario
-    session[:misesion] = "Miguel Ortega"
-  end
-
-  def actualizaciondeusuario
+  def edit
     @persona = Persona.find(params[:id])
   end
 
-  def index
-    session[:persona_id] = 1
+  def update
+    @persona = Persona.find(params[:id])
+
+    #if @estacionamiento.update_attributes(params[estacionamiento_params])
+    if @persona.update(persona_params)
+      redirect_to :action => :home, :id => @persona.id
+    else
+      render 'edit'
+    end
   end
+
+  def destroy
+    @persona = Persona.find(params[:id])
+    @persona.destroy
+
+    redirect_to :action => :index
+  end
+  
+  def show
+   # @estacionamiento = Estacionamiento.find(params[:id])
+  end
+
+  def index
+    
+    #if params[:estacionamiento] != nil then
+     # @estacionamientos = Estacionamiento.find_by_sql(["SELECT * FROM estacionamientos WHERE distrito LIKE ? AND tipo LIKE ? AND ubicacion LIKE ?", params[:estacionamiento][:distrito], params[:estacionamiento][:tipo], params[:estacionamiento][:ubicacion]])
+    #else
+   #   @estacionamientos = Estacionamiento.all
+
+      ##Sirve para obtener los primeros N registros
+      #@estacionamientos = Estacionamiento.take(0)
+    #end
+    
+  end
+
+  
+
 
 private
   def persona_params
