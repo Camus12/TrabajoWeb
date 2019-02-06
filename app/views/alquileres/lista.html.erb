@@ -1,0 +1,90 @@
+<h1>Lista de Alquileres</h1>
+
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :fechadesde, "Alquiler desde:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.date_field(:fechadesde, value: Date.today) %>
+		</div>
+		
+		<div class="col-sm-1">
+			<%= f.label :fechahasta, "hasta:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.date_field(:fechahasta, value: Date.today) %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :distrito, "Distrito:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :estacionamiento, "Estacionamiento:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :estacionamiento, [["Estacionamiento Don Pedrito", "1"], ["Los Portalitos", "2"], 
+				["Estac. Los Suspiros", "3"], ["Particular", "4"]], { :include_blank => "Seleccione Estacionamiento"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-5 col-sm-2">
+			<%= f.submit "Buscar", :class => "btn btn-primary"%>
+		</div>
+	</div>
+	
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Estacionamiento</th>
+					<th>Fecha</th>
+					<th>Hora</th>
+				</tr>
+		    </thead>
+		    <tbody>
+				<tr>
+					<td>Estacionamiento Don Pedrito</td>
+					<td>12/01/2019</td>
+					<td>08:00 a.m.</td>
+				</tr>
+				<tr>
+					<td>Estacionamiento Don Pedrito</td>
+					<td>12/01/2019</td>
+					<td>10:00 a.m.</td>
+				</tr>
+				<tr>
+					<td>Estacionamiento Don Pedrito</td>
+					<td>12/01/2019</td>
+					<td>12:00 p.m.</td>
+				</tr>
+				<tr>
+					<td>Estacionamiento Don Pedrito</td>
+					<td>12/01/2019</td>
+					<td>03:00 p.m.</td>
+				</tr>
+				<tr>
+					<td>Los Portalitos</td>
+					<td>11/01/2019</td>
+					<td>09:00 a.m.</td>
+				</tr>
+				<tr>
+					<td>Los Portalitos</td>
+					<td>11/01/2019</td>
+					<td>11:00 a.m.</td>
+				</tr>
+		    </tbody>
+	  	</table>
+	</div>
+	
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigopersona: 1
+  tiposervicio: MyString
+  descripcion: MyText
+
+two:
+  codigopersona: 1
+  tiposervicio: MyString
+  descripcion: MyText

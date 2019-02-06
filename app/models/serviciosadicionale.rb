@@ -1,0 +1,2 @@
+class Serviciosadicionale < ApplicationRecord
+end

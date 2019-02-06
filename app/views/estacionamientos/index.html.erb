@@ -1,0 +1,80 @@
+<h1>Lista de Estacionamientos</h1>
+
+<%= form_for :estacionamiento, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :distrito, "Distrito:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :distrito, [["Seleccione Distrito", "%"], ["La Molina", "La Molina"], ["Surco", "Surco"], ["Barranco", "Barranco"]], { :include_blank => false }, {:class => "form-control"} %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :tipo, "Tipo:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.select :tipo, [["Seleccione Tipo", "%"], ["Interior", "INTER"], ["Exterior", "EXTER"], ["Aire Libre", "AIRE"]], { :include_blank => false }, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :ubicacion, "Ubicación:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.select :ubicacion, [["Seleccione Ubicacion", "%"], ["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => false }, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-2">
+			<%= f.submit "Buscar", :class => "btn btn-primary"%>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to "Registrar", { :action => "new" }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Distrito</th>
+					<th>Dirección</th>
+					<th>Tipo</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+		    </thead>
+		    <tbody>
+
+		    	<% @estacionamientos.each do |estacionamiento| %>
+		    	<tr>
+					<td><%= estacionamiento.nombredescriptivo %></td>
+					<td><%= estacionamiento.distrito %></td>
+					<td><%= estacionamiento.direccion %></td>
+					<td><%= estacionamiento.tipo %></td>
+					<td><%= link_to "Ver", :action => :show, :id => estacionamiento.id %></td>
+					<td><%= link_to "Editar", :action => :edit, :id => estacionamiento.id %></td>
+					<td><%= link_to "Eliminar", { :action => :destroy, :id => estacionamiento.id }, :method => :delete, :data => { :confirm => '¿Estas seguro?' } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista" } %></td>
+				</tr>
+		    	<% end %>
+		    	
+				<tr>
+					<td>Estacionamiento Don Pedrito</td>
+					<td>San Miguel</td>
+					<td>Av. La Marina 248</td>
+					<td>Interior</td>
+				</tr>
+		    </tbody>
+	  	</table>
+	</div>
+
+<% end %>
