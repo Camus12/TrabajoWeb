@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gestionar Publicidad</h1>
+
+<table class="table table-striped table-hover" >
+  <thead>
+    <tr>
+      <th>Nombre Descriptivo</th>
+      <th>Nombre Cliente</th>
+      <th>Imagen</th>
+      <th>Tarifa</th>
+      <th>Ubicacion</th>
+      <th>Frecuencia</th>
+      <th>Fecha</th>
+      <th>Enlace</th>
+      <th>Estado</th>
+      <th>Detalles</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @publicidad.each do |publicidad| %>
+      <tr>
+        <td><%= publicidad.nombredescriptivo %></td>
+        <td><%= publicidad.nombrecliente %></td>
+        <td><%= publicidad.imagen %></td>
+        <td><%= publicidad.tarifa %></td>
+        <td><%= publicidad.ubicacion %></td>
+        <td><%= publicidad.frecuencia %></td>
+        <td><%= publicidad.fecha %></td>
+        <td><%= publicidad.enlace %></td>
+        <td><%= publicidad.estado %></td>
+        <td><%= publicidad.detalles %></td>
+        <td><%= link_to 'Detalles', publicidad %></td>
+        <td><%= link_to 'Editar', edit_publicidad_path(publicidad) %></td>
+        <td><%= link_to 'Eliminar', publicidad, method: :delete, data: { confirm: 'Usted esta seguro de eliminar la publicidad seleccionada?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Ingresar Publicidad', new_publicidad_path %>

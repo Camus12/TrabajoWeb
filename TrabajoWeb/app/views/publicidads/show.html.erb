@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombredescriptivo:</strong>
+  <%= @publicidad.nombredescriptivo %>
+</p>
+
+<p>
+  <strong>Nombrecliente:</strong>
+  <%= @publicidad.nombrecliente %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @publicidad.imagen %>
+</p>
+
+<p>
+  <strong>Tarifa:</strong>
+  <%= @publicidad.tarifa %>
+</p>
+
+<p>
+  <strong>Ubicacion:</strong>
+  <%= @publicidad.ubicacion %>
+</p>
+
+<p>
+  <strong>Frecuencia:</strong>
+  <%= @publicidad.frecuencia %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @publicidad.fecha %>
+</p>
+
+<p>
+  <strong>Enlace:</strong>
+  <%= @publicidad.enlace %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @publicidad.estado %>
+</p>
+
+<p>
+  <strong>Detalles:</strong>
+  <%= @publicidad.detalles %>
+</p>
+
+<%= link_to 'Editar', edit_publicidad_path(@publicidad) %> |
+<%= link_to 'Regresar', publicidads_path %>

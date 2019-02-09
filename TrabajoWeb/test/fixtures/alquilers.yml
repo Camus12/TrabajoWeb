@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigopersona: 1
+  codigoestacionamiento: 1
+  inicioalquiler: 2019-02-04 01:42:05
+  finalquiler: 2019-02-04 01:42:05
+  precioporhora: 9.99
+  preciototal: 9.99
+
+two:
+  codigopersona: 1
+  codigoestacionamiento: 1
+  inicioalquiler: 2019-02-04 01:42:05
+  finalquiler: 2019-02-04 01:42:05
+  precioporhora: 9.99
+  preciototal: 9.99

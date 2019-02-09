@@ -12,7 +12,7 @@
 				<%= f.label :distrito, "Distrito:" %>
 			</div>
 		<div class="col-sm-7">
-			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"]], { :include_blank => "Seleccione"}, {:class => "form-control"}  %>
+			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"], ["Miraflores", "4"]], { :include_blank => "Seleccione"}, {:class => "form-control"}  %>
 			</div>
 		</div>
 
@@ -81,8 +81,9 @@
 
  <div class="col-sm-9">
 
- 	<div class="col-sm-11" >
- 		
+ 	<% @estacionamientos.each do |estacionamiento| %>
+ 		<div class="col-sm-11" >
+ 		 	
  		<div class="col-sm-3">
  			<%= image_tag("Img1.jpg", :alt => "Los Portales",size: "180x180") %>
  		</div>
@@ -91,203 +92,52 @@
 	 	<div class="col-sm-6">
 	 			<div class="form-group">
 					<div class= "col-sm-8">
-					<%= f.label :descripcion, "Estacionamiento Los Portales" %>
+					<%= f.label :descripcion, estacionamiento.nombredescriptivo  %>
 					</div>
 	
 				</div>
 
 				<div class="form-group">
 					<div class= "col-sm-8">
-					<%= f.label :direccion, "Av. Los Jeranios 345" %>
+					<%= f.label :direccion, estacionamiento.direccion + " - " + estacionamiento.distrito %>
 					</div>
 	
 				</div>
 
 			<div class="form-group">
 				<div class= "col-sm-6">
-				<%= f.label :dimensiones, "2.5m x 3.5m x 1.8m" %>
+				<%= f.label :dimensiones, estacionamiento.largo.to_s + "m x " + estacionamiento.ancho.to_s + "m x " + estacionamiento.altura.to_s + "m " %>
 				</div>
 				<div class= "col-sm-3">
-				<%= f.label :Tipo, "Interior" %>
+				<%= f.label :Tipo, estacionamiento.tipo %>
 				</div>
 				<div class= "col-sm-3">
-				<%= f.label :Ubicación, "Azotea" %>
+				<%= f.label :Ubicación, estacionamiento.ubicacion %>
 				</div>
 
 			</div>
 
    			<div class="form-group">
 				<div class="col-sm-5">
-				<%= f.label :preciohora, "S/ 4.5 por hora" %>
+				<%= f.label :preciohora, " S/ " + estacionamiento.precioporhora.to_s + " por hora" %>
 				</div>
 				<div class="col-sm-4">
-				<%= f.label :telefono, "014687256" %>
+				<%= f.label :telefono, estacionamiento.numerotelefono %>
 				</div>
 				<div class="col-sm-2">
-				<%= link_to "Alquilar", {controller: "alquileres", action: "registro" }, :class =>"btn btn-success" %>
+				<%= link_to "Alquilar", {controller: "alquileres", action: "registro" }, :id => estacionamiento.id, :class =>"btn btn-success" %>
+				
+				
 				</div>
 
 			</div>
 
 		</div>	
 	</div>	
-	<div class="col-sm-11">
+	    
+ <% end %> 
 
-		<div class= "col-sm-3">
-			
-			<%= image_tag("Img3.jpg", :alt => "Los Portales",size: "180x180") %>
-		</div>
-
-		<div class= "col-sm-6">
-		
-			<div class="form-group">
-					<div class= "col-sm-8">
-					<%= f.label :descripcion, "Estacionamiento Pepito" %>
-					</div>
-	
-			</div>
-
-			<div class="form-group">
-				<div class= "col-sm-8">
-					<%= f.label :direccion, "Av. Los Patriotras 175" %>
-				</div>
-	
-			</div>
-
-			<div class="form-group">
-				<div class= "col-sm-6">
-				<%= f.label :dimensiones, "2.5m x 3.5m x 1.8m" %>
-				</div>
-				<div class= "col-sm-3">
-				<%= f.label :Tipo, "Exterior" %>
-				</div>
-				<div class= "col-sm-3">
-				<%= f.label :Ubicación, "Azotea" %>
-				</div>
-
-			</div>
-
-   				<div class="form-group">
-						<div class="col-sm-5">
-							<%= f.label :preciohora, "S/ 3.5 por hora" %>
-						</div>
-						<div class="col-sm-4">
-							<%= f.label :telefono, "016845236" %>
-						</div>
-						<div class="col-sm-2">
-							<%= link_to "Alquilar", {controller: "alquileres", action: "registro" }, :class =>"btn btn-success" %>
-						</div>
-
-				</div>
-		</div>
-	</div>
-
-	<div class= "col-sm-11">
-
-		<div class= "col-sm-3">
-			<%= image_tag("Img4.jpg", :alt => "Los Portales",size: "180x180") %>
-
-		</div>
-
-		<div class= "col-sm-6">
-
-				<div class="form-group">
-					<div class= "col-sm-9">
-					<%= f.label :descripcion, "Estacionamiento Los Portales" %>
-					</div>
-	
-				</div>
-
-				<div class="form-group">
-					<div class= "col-sm-9">
-					<%= f.label :direccion, "Av. Benavides 1405" %>
-					</div>
-	
-				</div>
-
-			<div class="form-group">
-					<div class= "col-sm-6">
-						<%= f.label :dimensiones, "2.5m x 3.5m x 1.8m" %>
-					</div>
-					<div class= "col-sm-4">
-						<%= f.label :Tipo, "Aire Libre" %>
-					</div>
-					<div class= "col-sm-2">
-						<%= f.label :Ubicación, "Primer piso" %>
-				</div>
-
-			</div>
-
-   			<div class="form-group">
-				<div class="col-sm-5">
-				<%= f.label :preciohora, "S/ 4.5 por hora" %>
-				</div>
-				<div class="col-sm-4">
-				<%= f.label :telefono, "01231578" %>
-				</div>
-				<div class="col-sm-2">
-				<%= link_to "Alquilar", {controller: "alquileres", action: "registro" }, :class =>"btn btn-success" %>
-				</div>
-
-			</div>
-		</div>
-
-	</div>
-
-
-	<div class= "col-sm-11">
-
-		<div class= "col-sm-3">
-			<%= image_tag("Img5.jpg", :alt => "Los Portales",size: "180x180") %>
-
-		</div>
-
-		<div class= "col-sm-6">
-				<div class="form-group">
-					 <div class= "col-sm-9">
-					<%= f.label :descripcion, "Estacionamiento Los Condores" %>
-					</div>
-	
-				</div>
-
-				<div class="form-group">
-					<div class= "col-sm-9">
-					<%= f.label :direccion, "Av. Javier Prado 1487" %>
-					</div>
-	
-				</div>
-
-			<div class="form-group">
-				<div class= "col-sm-6">
-				<%= f.label :dimensiones, "2.5m x 3.5m x 1.8m" %>
-				</div>
-				<div class= "col-sm-3">
-				<%= f.label :Tipo, "Interior" %>
-				</div>
-				<div class= "col-sm-3">
-				<%= f.label :Ubicación, "Sotano" %>
-				</div>
-
-			</div>
-
-   			<div class="form-group">
-				<div class="col-sm-5">
-				<%= f.label :preciohora, "S/ 5.0 por hora" %>
-				</div>
-				<div class="col-sm-4">
-				<%= f.label :telefono, "016215874" %>
-				</div>
-				<div class="col-sm-2">
-			
-				<%= link_to "Alquilar", {controller: "alquileres", action: "registro" }, :class =>"btn btn-success" %>
-				</div>
-
-			</div>
-		</div>
-	</div>
 </div>
 		
-
-
 <% end %>
 
