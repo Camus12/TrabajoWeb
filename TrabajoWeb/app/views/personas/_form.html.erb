@@ -1,0 +1,109 @@
+<%= form_for @persona, :html => {:class => "form-horizontal"} do |f| %>
+
+
+
+<div class ="form-group">
+		<div class = "col-sm-2">
+			<%=f.label :nombre %>
+		 </div>
+	
+		<div class ="col-sm-8">
+		 	<%=f.text_field :nombre, { :class => " form-control", :placeholder => "Ingrese Nombre"} %>
+		 </div>
+		 <div class = "col-sm-2">
+		 </div>
+	 </div> 
+
+	 <div class ="form-group">
+			<div class ="col-sm-2">
+			<%=f.label :apepaterno,"Apellido Paterno" %> 
+			</div>
+			<div class ="col-sm-8">
+		 	<%=f.text_field :apepaterno, { :class => " form-control", :placeholder => "Ingrese Apellido Paterno"} %>
+			 </div>
+			  <div class = "col-sm-2">
+		 </div>
+
+	 </div> 
+
+	  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :apematerno,"Apellido Materno" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :apematerno, { :class => " form-control", :placeholder => "Ingrese Apellido Materno"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+  	<div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :tipousuario,"Tipo de Usuario" %> 
+		</div>
+		<div class="col-sm-10">
+							<%= f.select :tipousuario, [["Dueño",1],["Cliente",0]], { :include_blank => "Seleccione Usuario"},{:class => "form-control"} %>
+		</div> 
+	</div> 
+
+	  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :correo,"Correo" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :correo, { :class => " form-control", :placeholder => "Ingrese Correo"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+
+
+	   <div class ="form-group">
+		 <label class="col-sm-2" for="ConfirCorreo">Confirmar Correo:</label>
+    <div class="col-sm-8">
+      <input type="ConfirCorreo" class="form-control" id="ConfirCorreo" placeholder="Confirmar Correo">
+		  <div class = "col-sm-4">
+		 </div>
+
+		</div>
+			</div>
+
+
+		  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :contraseña,"Contraseña" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :contraseña, { :class => " form-control", :placeholder => "Ingrese Contraseña"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+
+	<div class ="form-group">
+		 <label class="col-sm-2" for="ConfirContraseña">Confirmar Contraseña:</label>
+    <div class="col-sm-8">
+      <input type="ConfirContraseña" class="form-control" id="ConfirContraseña" placeholder="Confirmar Contraseña">
+		  <div class = "col-sm-4">
+		 </div>
+
+		</div>
+			</div>
+
+
+	<div class ="form-group">
+		<div class="col-sm-2">
+		<%=f.submit "Cancelar", :class => "btn btn-danger"%>
+		</div>
+
+		<div class="col-sm-10">
+			<%=f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+
+</div>
+
+
+
+<% end %>

@@ -1,0 +1,158 @@
+
+
+<%= form_for @persona, :html => {:class => "form-horizontal"} do |f| %>  
+<div class ="form-group">
+		<div class = "col-sm-2">
+			<%=f.label :nombre %>
+		 </div>
+	
+		<div class ="col-sm-8">
+		 	<%=f.text_field :nombre, { :class => " form-control", :placeholder => "Ingrese Nombre"} %>
+		 </div>
+		 <div class = "col-sm-2">
+		 </div>
+	 </div> 
+
+	 <div class ="form-group">
+			<div class ="col-sm-2">
+			<%=f.label :apepaterno,"Apellido Paterno" %> 
+			</div>
+			<div class ="col-sm-8">
+		 	<%=f.text_field :apepaterno, { :class => " form-control", :placeholder => "Ingrese Apellido Paterno"} %>
+			 </div>
+			  <div class = "col-sm-2">
+		 </div>
+
+	 </div> 
+
+	  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :apematerno,"Apellido Materno" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :apematerno, { :class => " form-control", :placeholder => "Ingrese Apellido Materno"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+  	<div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :sexo,"Sexo" %> 
+		</div>
+		<div class="col-sm-10">
+			<label class="radio-inline"><input type="radio" name="Tipo" checked>Hombre</label>
+			<label class="radio-inline"><input type="radio" name="Tipo" checked>Mujer</label>
+
+		</div> 
+	</div> 
+
+	<div class ="form-group">
+		<div class ="col-sm-2">
+			<%=f.label :tipodocumento,"Tipo de Documento" %>
+		</div>
+		<div class ="col-sm-4">
+			<%= f.select :tipodocumento, [["DNI",1],["Pasaporte",2],["CarneExtra",3]], { :include_blank => "Seleccione Tipo Doc"},{:class => "form-control"} %>
+		</div>
+
+		
+		<div class="col-sm-4">
+			<%=f.text_field :numerodocumento,{ :class => "form-control", :placeholder =>"Ingrese Numero de Documento"} %>
+		</div>
+
+	</div>
+
+		<div class ="form-group">
+		<div class ="col-sm-2">
+			<%=f.label :distrito,"Distrito" %>
+		</div>
+		<div class ="col-sm-4">
+			<%= f.select :distrito, [["San Luis",1],["San Borja",2],["Surco",3]], { :include_blank => "Seleccione Distrito"},{:class => "form-control"} %>
+		</div>
+
+		
+		
+
+	</div>
+
+
+	  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :direccion,"Dirreccion" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :direccion, { :class => " form-control", :placeholder => "Ingrese Dirreccion"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+
+
+	  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :correo," Correo" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :correo, { :class => " form-control", :placeholder => "Ingrese Correo"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+
+
+		  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :contraseña,"Contraseña" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :contraseña, { :class => " form-control", :placeholder => "Ingrese Contraseña"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+
+
+		  <div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :numerocel,"Ingrese Telefono" %> 
+		</div>
+		<div class ="col-sm-8">
+		 	<%=f.text_field :numerocel, { :class => " form-control", :placeholder => "Ingrese Telefono"} %>
+		 </div>
+		  <div class = "col-sm-2">
+		 </div>
+
+	</div> 
+
+	<div class ="form-group">
+		<div class ="col-sm-2">
+		<%=f.label :fechanacimiento,"Fecha Nacimiento" %> 
+		</div>
+		
+   
+        <div class="col-sm-6">
+        <div class="input-append date" id="dp3" data-date="01-01-2019" data-date-format="dd-mm-yyyy">
+  <input class="span2" size="16" type="text" value="01-01-2019">
+  <span class="add-on"><i class="icon-th"></i></span>
+</div>
+    </div>
+
+	</div>
+
+	<div class ="form-group">
+		<div class="col-sm-2">
+		<%=f.submit "Cancelar", :class => "btn btn-danger"%>
+		</div>
+
+		<div class="col-sm-10">
+			<%=f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+
+</div>
+
+
+
+<% end %>

@@ -1,8 +1,14 @@
-<h1>Darme de Baja</h1>
-<%= form_for :DarmeBaja, :html => { :method => :get, :class => "form-horizontal"}  do|f|%>
+<%= form_for @persona, :html => {:method => :post, :class => "form-horizontal"}, :url => { :action => :bajausuariopost}  do |f| %>  
 
-<h3>Porque es importante tu opinión, queremos saber el motivo de baja para seguir mejorando
-</h3>
+
+
+
+<div class="form-group">
+  <label for="comment">Porque es importante tu opinión , queremos saber el motivo de baja para seguir mejorando:</label>
+		 	<%=f.text_field :nombre %>
+
+</div>
+
 
 <div class="form-group">
 	<div class="col-sm-1">
@@ -43,15 +49,10 @@
 
 </div>
 
-
-
-
 <div class="form-group">
   <label for="comment">Comentario:</label>
   <textarea class="form-control" rows="5" id="comment"></textarea>
 </div>
-
-
 
 
 <div class ="form-group">

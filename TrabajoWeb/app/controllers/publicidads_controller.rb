@@ -72,5 +72,6 @@ class PublicidadsController < ApplicationController
 
     def publicidad_params
       params.require(:publicidad).permit( :nombredescriptivo, :nombrecliente, :imagen, :tarifa, :ubicacion, :frecuencia, :fecha, :enlace, :estado, :detalles)
+
     end
 end

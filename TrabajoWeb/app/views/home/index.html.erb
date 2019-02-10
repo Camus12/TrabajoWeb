@@ -24,26 +24,21 @@
 	}
 </style>
 
-<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" }, :url => { :controller => "home", :action => "index" } do |f| %>
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" }, :url => { :controller => "estacionamientos", :action => "buscar_detalle" } do |f| %>
 
-<div class="vertical-center">
-	<div class="container">
-		<div class="row">
-			<div class="input-group col-sm-offset-2 col-sm-8 col-sm-offset-2">
-				<%= f.text_field :direccion, { :class => "form-control input-lg", :placeholder => "Ingrese estacionamiento a buscar" } %>
+	<div class="vertical-center">
+		<div class="container">
+			<div class="row">
+				<div class="input-group col-sm-offset-2 col-sm-8 col-sm-offset-2">
+					<%= f.text_field :distrito, { :class => "form-control input-lg", :placeholder => "Ingrese estacionamiento a buscar" } %>
 
-				<span class="input-group-btn">
-					
-					<%= link_to "Buscar", {controller: "estacionamientos", action: "buscar_detalle" }, :class =>"btn btn-primary input-lg" %>
-						
-				</span>
+					<span class="input-group-btn">
+						<%= f.submit "Buscar", :class => "btn btn-primary input-lg"%>	
+					</span>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-
-</div>
 
 <% end %>
 
