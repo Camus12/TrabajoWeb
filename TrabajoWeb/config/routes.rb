@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
  
   get 'sessions/new'
+
   get 'alquileres/lista'
   get 'alquileres/registro'
   get 'serviciosadicionales/estacedicion'
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   get 'home/index' 
 
   get 'administrador/principal'
+get 'administrador/loginadm'
   
   resources "estacionamientos"
   resources "serviciosadicionales"
