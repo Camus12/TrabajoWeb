@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+ 
   get 'alquileres/lista'
   get 'alquileres/registro'
   get 'serviciosadicionales/estacedicion'
@@ -7,11 +7,15 @@ Rails.application.routes.draw do
   get 'estacionamientos/buscar'
   get 'estacionamientos/buscar_detalle'
   get 'estacionamientos/comentar'
-  get 'home/vista'
+
+  get'personas/bajausuario'
+  post'personas/bajausuariopost'
+
+  resources "personas"
+
+ 
   get 'home/login'
-  get 'home/registro'
-  get 'home/bajausuario'
-  get 'home/actualizaciondeusuario'
+  
   get 'home/index' 
 
   get 'administrador/principal'
