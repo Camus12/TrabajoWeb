@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombredescriptivo: 1
+  nombrecliente: MyString
+  imagen: MyString
+  tarifa: 9.99
+  ubicacion: 1
+  frecuencia: 1
+  fecha: 1
+  enlace: MyString
+  estado: 1
+  detalles: MyText
+
+two:
+  nombredescriptivo: 1
+  nombrecliente: MyString
+  imagen: MyString
+  tarifa: 9.99
+  ubicacion: 1
+  frecuencia: 1
+  fecha: 1
+  enlace: MyString
+  estado: 1
+  detalles: MyText

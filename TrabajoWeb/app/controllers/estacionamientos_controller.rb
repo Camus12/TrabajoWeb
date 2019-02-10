@@ -11,7 +11,7 @@ class EstacionamientosController < ApplicationController
     if @estacionamiento.save
       redirect_to :action => :show, :id => @estacionamiento.id
     else
-      render "new"
+      render "new"  
     end
   end
 
@@ -60,7 +60,11 @@ class EstacionamientosController < ApplicationController
   end
 
   def buscar_detalle
-    render layout: "cliente"
+   # @estacionamientos = Estacionamiento.find_by(distrito: "Miraflores")
+    @estacionamientos =Estacionamiento.where("distrito = ?", params[:estacionamiento][:direccion])
+    #logger.debug params[:upc][:distrito]
+    #logger.debug params[:distrito]
+    #render layout: "cliente"
   end
 
 

@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_155942) do
-
-  create_table "admins", force: :cascade do |t|
-    t.string "codigo"
-    t.string "clave"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_02_04_064205) do
 
   create_table "alquilers", force: :cascade do |t|
     t.integer "codigopersona"
@@ -62,21 +55,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_155942) do
     t.integer "numerocel"
     t.string "distrito"
     t.string "direccion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "publicidads", force: :cascade do |t|
-    t.integer "nombredescriptivo"
-    t.string "nombrecliente"
-    t.string "imagen"
-    t.decimal "tarifa"
-    t.integer "ubicacion"
-    t.integer "frecuencia"
-    t.integer "fecha"
-    t.string "enlace"
-    t.integer "estado"
-    t.text "detalles"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

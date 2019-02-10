@@ -1,0 +1,150 @@
+<div class="container">
+
+<%= form_with(model: @publicidad, local: true) do |form| %>
+
+
+<div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :nombredescriptivo , "Nombre Descriptivo:" %>
+    </div>
+    <div class="col-sm-5">
+      <%= form.text_field :nombredescriptivo , { :class => "form-control", :placeholder => "Descripción de aviso"} %>
+    </div>
+  </div>
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :nombrecliente , "Nombre de Cliente:" %>
+    </div>
+    <div class="col-sm-5">
+      <%= form.text_field :nombrecliente, { :class => "form-control" , :placeholder => "Razon social de la empresa"} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :imagen , "Agregar Imagen:" %>
+    </div>
+    <div class="col-sm-4">
+      <%= form.text_field :imagen, { :class => "form-control", :placeholder => "Ingrese ruta"} %>
+    </div>
+    <div class="col-sm-1">
+      <%= form.submit "Buscar", :class => "btn"%>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :tarifa , "Tarifa:" %>
+    </div>
+    <div class="col-sm-2">
+      <%= form.text_field :tarifa, { :class => "form-control" , :placeholder => "En Soles"} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :ubicacion , "Ubicación:" %>
+    </div>
+    <div class="col-sm-2">
+      <%= form.select :ubicacion, [["Arrendador", 1],["Arrendatario", 2],["General", 2]] , { :include_blank => "Seleccione" } , {:class => "form-control"} %>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :frecuencia, "Frecuencia de visualización:" %>
+    </div>
+    <div class="col-sm-2">
+      <%= form.select :frecuencia, [["Intensivo", 1],["Medio", 2],["Ligero", 3]] , { :include_blank => "Seleccione" } , {:class => "form-control"} %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :fecha , "Rango de fechas:" %>
+    </div>
+    <div class="col-sm-5">
+      <%= form.text_field :fecha, { :class => "form-control", :placeholder => "Descripción de aviso"} %>
+    </div>
+
+    <div class="col-sm-1">
+      Desde 
+    </div>
+    
+    <div class="col-sm-1">
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-sm-1">
+      <p class="text-center">a</p>
+    </div>
+
+    <div class="col-sm-1">
+      <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+            </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :enlace , "Enlace Externo:" %>
+    </div>
+    <div class="col-sm-4">
+      <%= form.text_field :enlace, { :class => "form-control", :placeholder => "URL del Cliente"} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :estado , "Estado:" %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.select :estado, [["Activado", 1],["Desactivado", 2]] , { :include_blank => "Seleccione" } , {:class => "form-control"} %>
+    </div>
+    
+  </div>
+
+
+  <div class="form-group">
+
+    <div class="col-sm-offset-2 col-sm-2">
+      <%= form.label :detalles , "Detalles:" %>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-7">
+    <%= form.text_area :detalles, { :rows => 4, :class => "form-control" , :placeholder => "URL del Cliente"} %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

@@ -1,14 +1,14 @@
 <h1>Buscar Estacionamientos</h1>
 
 
-<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+<%= form_for :upc, url: { action: "buscar_detalle" }, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
 
-	<div class="form-group">
+	<div class="form-group">	
 		<div class= "col-sm-2">
 			<%= f.label :distrito, "Distrito:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+			<%= f.select :distrito, [["San Miguel", "San Miguel"], ["Barranco", "Barranco"], ["Breña", "Breña"], ["Miraflores", "Miraflores"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
 		</div>
 
 		<div class="col-sm-2">
@@ -39,7 +39,7 @@
 
 	</div>
 
-	<div class="form-group">
+		<div class="form-group">
 		<div class="col-sm-2">
 			<%= f.label :ubicacion, "Ubicación:" %>
 		</div>
@@ -50,7 +50,7 @@
 			<%= f.label :hora, "Hora:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :hora, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
+			<%= f.select :hora, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Horario"}, {:class => "form-control"}  %>
 		</div>
 	</div>
 
@@ -74,7 +74,8 @@
 	<div class="form-group">
 		<div class="col-sm-offset-4 col-sm-2">
 			
-			<%= link_to "Buscar Estacionamientos", {controller: "estacionamientos", action: "buscar_detalle" }, :class =>"btn btn-success" %>
+	
+			<%= submit_tag "Buscar Estacionamiento", :name => nil, :class => "btn btn-info"%>
 		</div>
 
 	</div>
