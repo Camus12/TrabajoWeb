@@ -1,0 +1,39 @@
+<h1>Viendo personas</h1>
+
+<%= form_for :personas, :html => {:method => :get, :class => "form-horizontal"} do |f| %>
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Código:</strong>
+		</div>
+		<div class="col-sm-4">
+			<%= @persona.id %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+	  		<strong>nombre:</strong>
+	  	</div>
+		<div class="col-sm-4">
+	  		<%= @persona.nombre %>
+	  	</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Apellido Paterno:</strong>
+		</div>
+		<div class="col-sm-4">	
+			<%= @persona.apepaterno %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-2">		
+			<%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to 'Editar', { :action => :edit, :id => @persona.id }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>

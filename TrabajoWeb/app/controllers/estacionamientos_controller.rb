@@ -100,7 +100,7 @@ class EstacionamientosController < ApplicationController
 
   def buscar_detalle
    # @estacionamientos = Estacionamiento.find_by(distrito: "Miraflores")
-    @estacionamientos =Estacionamiento.where("distrito = ?", params[:upc][:distrito]  )
+@estacionamientos =Estacionamiento.where("distrito = ?", params[:upc][:distrito]  )
     #logger.debug params[:upc][:distrito]
     #logger.debug params[:distrito]
     #render layout: "cliente"

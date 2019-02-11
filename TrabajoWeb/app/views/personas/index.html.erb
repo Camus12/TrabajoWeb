@@ -1,0 +1,36 @@
+
+<%= form_for :personas, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-10 col-sm-2">
+			<%= link_to "Registrar", { :action => "new" }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+	
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Tipo</th>
+					<th></th>
+					<th></th>
+				</tr>
+		    </thead>
+		    <tbody>
+		    	<% @personas.each do |persona| %>
+		    	<tr>
+					<td><%= persona.nombre %></td>
+					<td><%= persona.apepaterno %></td>
+					<td><%= persona.tipousuario %></td>
+					<td><%= link_to "Ver", :action => :show, :id => persona.id %></td>
+					<td><%= link_to "Editar", :action => :edit, :id => persona.id %></td>
+					<td><%= link_to "Eliminar", { :action => :bajausuario, :id => persona.id } %></td>
+				</tr>
+		    	<% end %>
+		    </tbody>
+	  	</table>
+	</div>
+	
+<% end %>

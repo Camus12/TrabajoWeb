@@ -1,0 +1,15 @@
+<div class="form-group">
+  	<div class="col-sm-offset-4 col-sm-4">
+	    <form class="form-signin ">
+	      
+	      <%= image_tag "logo.jpg", align: "center", height: "180", title: "Logo" %>
+	      <h1 class="h3 mb-3 font-weight-normal">Ingrese sus datos</h1>
+	      <label class="sr-only">Codigo de usuario</label>
+	      <input  id="inputEmail" class="form-control" placeholder="Codigo de usuario" required autofocus>
+	      <label for="inputPassword" class="sr-only">Contraseña</label>
+	      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+	      <%= link_to "Ingresar", { :controller => "administrador", :action => "principal"}, :class => "btn btn-primary btn-lg" %>
+	      <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+	    </form>
+	</div>
+</div>

@@ -1,18 +1,13 @@
 class PublicidadsController < ApplicationController
   layout 'administrador'
-  before_action :set_publicidad, only: [:lista, :show, :update, :destroy]
+  before_action :set_publicidad, only: [:show, :edit, :update, :destroy]
 
   # GET /comercials
   # GET /comercials.json
-  def lista
-  end
 
-  def registro
-  	
-  end
 
   def index
-    @publicidad = Publicidad.all
+    @publicidads = Publicidad.all
   end
 
   # GET /comercials/1
@@ -76,6 +71,7 @@ class PublicidadsController < ApplicationController
     end
 
     def publicidad_params
-      params.require(:publicidad).permit(:nombredescriptivo, :nombrecliente, :imagen, :tarifa, :ubicacion, :frecuencia, :fecha, :enlace, :estado, :detalles)
+      params.require(:publicidad).permit( :nombredescriptivo, :nombrecliente, :imagen, :tarifa, :ubicacion, :frecuencia, :fecha, :enlace, :estado, :detalles)
+
     end
 end
