@@ -3,6 +3,7 @@ class EstacionamientosController < ApplicationController
 
   def new
     @estacionamiento = Estacionamiento.new
+    @is_direcciongooglemaps = ""
   end
 
   def create
@@ -17,6 +18,7 @@ class EstacionamientosController < ApplicationController
 
   def edit
     @estacionamiento = Estacionamiento.find(params[:id])
+    @is_direcciongooglemaps = @estacionamiento.direcciongooglemaps
   end
 
   def update
@@ -39,6 +41,7 @@ class EstacionamientosController < ApplicationController
   
   def show
     @estacionamiento = Estacionamiento.find(params[:id])
+    @is_direcciongooglemaps = @estacionamiento.direcciongooglemaps
   end
 
   def index
@@ -53,7 +56,7 @@ class EstacionamientosController < ApplicationController
       @is_ubicacion = params[:estacionamiento][:ubicacion]
 
       if @is_distrito != "" then
-        if ls_where = "" then
+        if ls_where == "" then
           ls_where = " WHERE lower(distrito) = '" + @is_distrito.downcase + "'"
         else
           ls_where = ls_where + " AND lower(distrito) = '" + @is_distrito.downcase + "'"
@@ -61,7 +64,7 @@ class EstacionamientosController < ApplicationController
       end
       
       if @is_tipo != "" then
-        if ls_where = "" then
+        if ls_where == "" then
           ls_where = " WHERE tipo = '" + @is_tipo + "'"
         else
           ls_where = ls_where + " AND tipo = '" + @is_tipo + "'"
@@ -69,7 +72,7 @@ class EstacionamientosController < ApplicationController
       end
 
       if @is_ubicacion != "" then
-        if ls_where = "" then
+        if ls_where == "" then
           ls_where = " WHERE ubicacion = '" + @is_ubicacion + "'"
         else
           ls_where = ls_where + " AND ubicacion = '" + @is_ubicacion + "'"
