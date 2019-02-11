@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
     persona = Persona.find_by(correo: params[:session][:correo].downcase, contraseña: params[:session][:contraseña])
     if persona
       log_in persona
-      puts persona.tipousuario
-      if persona.tipousuario
+      if persona.tipousuario 
            redirect_to :controller => :estacionamientos, :action => :index
       else
           redirect_to :controller => :estacionamientos, :action => :buscar
