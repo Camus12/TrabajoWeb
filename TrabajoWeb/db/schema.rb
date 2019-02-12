@@ -10,15 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_06_154447) do
+ActiveRecord::Schema.define(version: 2019_02_10_155942) do
 
-  create_table "alquilers", force: :cascade do |t|
-    t.integer "codigopersona"
-    t.integer "codigoestacionamiento"
-    t.datetime "inicioalquiler"
-    t.datetime "finalquiler"
-    t.decimal "precioporhora"
-    t.decimal "preciototal"
+  create_table "admins", force: :cascade do |t|
+    t.string "codigo"
+    t.string "clave"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
