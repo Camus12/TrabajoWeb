@@ -25,9 +25,20 @@ class AlquileresController < ApplicationController
   end
 
 
+
+
   def registro
-  logger.debug params
-    @estacionamiento = Estacionamiento.find(params[:id])
+  #logger.debug params
+ #   @estacionamiento = Estacionamiento.find(params[:id])
+  #end
+
+   @estacionamiento = Estacionamiento.new(estacionamiento_params)
+
+    if @estacionamiento.save
+      redirect_to :action => :show, :id => @estacionamiento.id
+    else
+      render "new"    
+    end
   end
 
 end

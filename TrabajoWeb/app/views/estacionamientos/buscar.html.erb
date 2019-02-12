@@ -5,10 +5,11 @@
 
 	<div class="form-group">	
 		<div class= "col-sm-2">
-			<%= f.label :distrito, "Distrito:" %>
+			<%= f.label :distrito, "distritoito:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :distrito, [["San Miguel", "San Miguel"], ["Barranco", "Barranco"], ["Breña", "Breña"], ["Miraflores", "Miraflores"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+		
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @is_distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
 		</div>
 
 		<div class="col-sm-2">
@@ -47,10 +48,10 @@
 			<%= f.select :ubicacion, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
 		</div>
 		<div class="col-sm-2">
-			<%= f.label :hora, "Hora:" %>
+			<%= f.label :tipo, "Tipo:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :hora, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Horario"}, {:class => "form-control"}  %>
+			<%= f.select :tipo, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Tipo"}, {:class => "form-control"}  %>
 		</div>
 	</div>
 
@@ -74,8 +75,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-4 col-sm-2">
 			
-	
-			<%= submit_tag "Buscar Estacionamiento", :name => nil, :class => "btn btn-info"%>
+			<%= f.submit "Buscar Estacionamiento", :class => "btn btn-info"%>
 		</div>
 
 	</div>
