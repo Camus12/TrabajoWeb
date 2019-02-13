@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   get 'administrador/principal'
   get 'administrador/loginadm'
   
-  resources "estacionamientos"
+  #resources "estacionamientos"
+  resources :estacionamientos do
+    resources :estacionamientoimagens
+  end
+
   resources "serviciosadicionales"
 
   #############

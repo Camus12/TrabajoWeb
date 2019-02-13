@@ -7,6 +7,7 @@ class ServiciosadicionalesController < ApplicationController
 
   def create
     @servicioadicional = Serviciosadicionale.new(servicioadicional_params)
+    @servicioadicional.codigopersona = session[:persona_id]
 
     if @servicioadicional.save
       redirect_to :action => :show, :id => @servicioadicional.id
@@ -21,6 +22,7 @@ class ServiciosadicionalesController < ApplicationController
 
   def update
     @servicioadicional = Serviciosadicionale.find(params[:id])
+    @servicioadicional.codigopersona = session[:persona_id]
 
     if @servicioadicional.update(servicioadicional_params)
       redirect_to :action => :show, :id => @servicioadicional.id
@@ -41,7 +43,7 @@ class ServiciosadicionalesController < ApplicationController
   end
 
   def index
-    @serviciosadicionales = Serviciosadicionale.all
+    @serviciosadicionales = Serviciosadicionale.all.where("codigopersona = " + session[:persona_id].to_s)
   end
 
   def estacedicion
@@ -52,6 +54,6 @@ class ServiciosadicionalesController < ApplicationController
 
 private
   def servicioadicional_params
-    params.require(:serviciosadicionale).permit(:tiposervicio, :descripcion)
+    params.require(:serviciosadicionale).permit(:codigopersona, :tiposervicio, :descripcion)
   end
 end

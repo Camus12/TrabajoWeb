@@ -8,6 +8,7 @@ class EstacionamientosController < ApplicationController
 
   def create
     @estacionamiento = Estacionamiento.new(estacionamiento_params)
+    @estacionamiento.codigopersona = session[:persona_id]
 
     if @estacionamiento.save
       redirect_to :action => :show, :id => @estacionamiento.id
@@ -23,8 +24,8 @@ class EstacionamientosController < ApplicationController
 
   def update
     @estacionamiento = Estacionamiento.find(params[:id])
+    @estacionamiento.codigopersona = session[:persona_id]
 
-    #if @estacionamiento.update_attributes(params[estacionamiento_params])
     if @estacionamiento.update(estacionamiento_params)
       redirect_to :action => :show, :id => @estacionamiento.id
     else
@@ -48,7 +49,7 @@ class EstacionamientosController < ApplicationController
     @is_distrito = ""
 
     if params[:estacionamiento] != nil then
-      ls_select = "SELECT * FROM estacionamientos"
+      ls_select = "SELECT * FROM estacionamientos WHERE codigopersona = " + session[:persona_id].to_s
       ls_where = ""
 
       @is_distrito = params[:estacionamiento][:distrito]
@@ -56,27 +57,15 @@ class EstacionamientosController < ApplicationController
       @is_ubicacion = params[:estacionamiento][:ubicacion]
 
       if @is_distrito != "" then
-        if ls_where == "" then
-          ls_where = " WHERE lower(distrito) = '" + @is_distrito.downcase + "'"
-        else
-          ls_where = ls_where + " AND lower(distrito) = '" + @is_distrito.downcase + "'"
-        end
+        ls_where = ls_where + " AND lower(distrito) = '" + @is_distrito.downcase + "'"
       end
       
       if @is_tipo != "" then
-        if ls_where == "" then
-          ls_where = " WHERE tipo = '" + @is_tipo + "'"
-        else
-          ls_where = ls_where + " AND tipo = '" + @is_tipo + "'"
-        end
+        ls_where = ls_where + " AND tipo = '" + @is_tipo + "'"
       end
 
       if @is_ubicacion != "" then
-        if ls_where == "" then
-          ls_where = " WHERE ubicacion = '" + @is_ubicacion + "'"
-        else
-          ls_where = ls_where + " AND ubicacion = '" + @is_ubicacion + "'"
-        end
+        ls_where = ls_where + " AND ubicacion = '" + @is_ubicacion + "'"
       end
 
       ls_select = ls_select + ls_where
@@ -85,7 +74,10 @@ class EstacionamientosController < ApplicationController
       ##Sirve para reemplazar los ? por parámetros
       #@estacionamientos = Estacionamiento.find_by_sql(["SELECT * FROM estacionamientos WHERE distrito LIKE ? AND tipo LIKE ? AND ubicacion LIKE ?", params[:estacionamiento][:distrito], params[:estacionamiento][:tipo], params[:estacionamiento][:ubicacion]])
     else
-      @estacionamientos = Estacionamiento.all
+      @estacionamientos = Estacionamiento.all.where("codigopersona = " + session[:persona_id].to_s)
+      
+      ##Sirve para obtener TODOS los registros
+      #@estacionamientos = Estacionamiento.all
 
       ##Sirve para obtener los primeros N registros
       #@estacionamientos = Estacionamiento.take(0)
@@ -109,6 +101,6 @@ class EstacionamientosController < ApplicationController
 
 private
   def estacionamiento_params
-    params.require(:estacionamiento).permit(:nombredescriptivo, :direccion, :direcciongooglemaps, :distrito, :numerotelefono, :precioporhora, :largo, :ancho, :altura, :tipo, :ubicacion)
+    params.require(:estacionamiento).permit(:codigopersona, :nombredescriptivo, :direccion, :direcciongooglemaps, :distrito, :numerotelefono, :precioporhora, :largo, :ancho, :altura, :tipo, :ubicacion)
   end
 end
