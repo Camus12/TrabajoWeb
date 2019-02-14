@@ -91,11 +91,59 @@ class EstacionamientosController < ApplicationController
   end
 
   def buscar_detalle
-   # @estacionamientos = Estacionamiento.find_by(distrito: "Miraflores")
-@estacionamientos =Estacionamiento.where("distrito = ?", params[:upc][:distrito]  )
+    render layout: "cliente"
+    
+    #@estacionamientos = Estacionamiento.find_by(distrito: "Miraflores")
+    @estacionamientos =Estacionamiento.where("distrito = ?", params[:upc][:distrito]  )
     #logger.debug params[:upc][:distrito]
     #logger.debug params[:distrito]
-    #render layout: "cliente"
+
+    @distrito = ""
+
+    if params[:upc] != nil then
+      ls_select = "SELECT * FROM estacionamientos"
+      ls_where = ""
+
+      @distrito = params[:upc][:distrito]
+      @tipo = params[:upc][:tipo]
+      @ubicacion = params[:upc][:ubicacion]
+
+
+      if @distrito != "" then
+        if ls_where == "" then
+          ls_where = " WHERE lower(distrito) = '" + @distrito.downcase + "'"
+        else
+          ls_where = ls_where + " AND lower(distrito) = '" + @distrito.downcase + "'"
+        end
+      end
+
+      if @tipo != "" then
+        if ls_where == "" then
+          ls_where = " WHERE tipo = '" + @tipo + "'"
+        else
+          ls_where = ls_where + " AND tipo = '" + @tipo + "'"
+        end
+      end
+
+      if @ubicacion != "" then
+        if ls_where == "" then
+          ls_where = " WHERE ubicacion = '" + @ubicacion + "'"
+        else
+          ls_where = ls_where + " AND ubicacion = '" + @ubicacion + "'"
+        end
+      end
+
+      ls_select = ls_select + ls_where
+      @estacionamientos = Estacionamiento.find_by_sql(ls_select)
+
+      ##Sirve para reemplazar los ? por parámetros
+      #@estacionamientos = Estacionamiento.find_by_sql(["SELECT * FROM estacionamientos WHERE distrito LIKE ? AND tipo LIKE ? AND ubicacion LIKE ?", params[:estacionamiento][:distrito], params[:estacionamiento][:tipo], params[:estacionamiento][:ubicacion]])
+    else
+      @estacionamientos = Estacionamiento.all
+
+      ##Sirve para obtener los primeros N registros
+      #@estacionamientos = Estacionamiento.take(0)
+    end
   end
 
 

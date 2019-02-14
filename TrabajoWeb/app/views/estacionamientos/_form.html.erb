@@ -5,6 +5,18 @@
 </style>
 
 <%= form_for @estacionamiento, :html => {:class => "form-horizontal"} do |f| %>
+	
+	<% if @estacionamiento.errors.any? %>
+		<div id="errorExplanation">
+		    <h2><%= pluralize(@estacionamiento.errors.count, "errores") %> impidieron
+		      que el estacionamiento fuera grabado:</h2>
+		    <ul>
+			    <% @estacionamiento.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+		    </ul>
+		</div>
+	<% end %>
 
 	<div class="form-group">
 		<div class="col-sm-2">
@@ -103,39 +115,6 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 				<%= content_tag(:iframe, '', src: @is_direcciongooglemaps, width: 400, height: 250, frameborder: 0, style: "border:0", allowfullscreen: "allowfullscreen") %>
-			</div>
-
-			<div class="form-group">
-				<div class="col-sm-2">
-					<%= f.submit "Cargar Fotos", :class => "btn btn-primary" %>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<table>
-					<tr>
-						<td>
-							<%= image_tag "estacionamiento.PNG", height: "100", title: "Estacionamiento 1" %>
-						</td>
-						<td>
-							<%= image_tag "estacionamiento.PNG", height: "100", title: "Estacionamiento 2" %>
-						</td>
-						<td>
-							<%= image_tag "estacionamiento.PNG", height: "100", title: "Estacionamiento 3" %>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<%= image_tag "estacionamiento.PNG", height: "100", title: "Estacionamiento 4" %>
-						</td>
-						<td>
-							<%= image_tag "estacionamiento.PNG", height: "100", title: "Estacionamiento 5" %>
-						</td>
-						<td>
-							
-						</td>
-					</tr>
-				</table>
 			</div>
 		</div>
 			

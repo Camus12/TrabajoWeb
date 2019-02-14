@@ -11,65 +11,46 @@
 			<div class="col-sm-4">
 				<%= f.label :distrito, "Distrito:" %>
 			</div>
-		<div class="col-sm-7">
-			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"], ["Miraflores", "4"]], { :include_blank => "Seleccione"}, {:class => "form-control"}  %>
+		<div class="col-sm-8">
+			
+
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
 			</div>
 		</div>
 
 		<div class="form-group">
-				<div class=" col-sm-5">
+			<div class=" col-sm-4">
 					<%= f.label :tipo, "Tipo:" %>
-				</div>
-				<div class="input-group mb-6">
-			  		<div class="input-group-prepend">
-		  				 <div class="input-group-text">
-		    		  		<input type="checkbox">
-		    		  		<%= f.label :tipo, "Interior" %> 
-		   		 		</div>
-		   		 		 <div class="input-group-text">
-		    		  		<input type="checkbox"> 
-		    		  		<%= f.label :tipo, "Exterior" %> 
-		   		 		</div>
-		   		 		  <div class="input-group-text">
-		    		  		<input type="checkbox"> 
-		    		  		<%= f.label :tipo, "Aire Libre" %> 
-		   		 		 </div>
-		   		 		
-		  			</div>
-		 		 
-				</div>
 			</div>
+			<div class="input-group col-sm-8">
+			  	<div class="col-sm-12">
+			
+					<%= f.select :tipo, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(tipo) AS tipo FROM estacionamientos").collect {|e| [e.tipo, e.tipo]}, selected: @tipo ), { :include_blank => "Seleccione Tipo" }, { :class => "form-control" } %>
+				</div>
+		 		 
+			</div>
+		</div>
 
-				<div class="form-group">
-				<div class=" col-sm-5">
+		<div class="form-group">
+				<div class=" col-sm-4">
 					<%= f.label :ubicacion, "Ubicación:" %>
 				</div>
-				<div class="input-group mb-6">
-			  		<div class="input-group-prepend">
-		  				 <div class="input-group-text">
-		    		  		<input type="checkbox">
-		    		  		<%= f.label :ubicacion, "Primer Piso" %> 
-		   		 		</div>
-		   		 		 <div class="input-group-text">
-		    		  		<input type="checkbox"> 
-		    		  		<%= f.label :ubicacion, "Sotano" %> 
-		   		 		</div>
-		   		 		  <div class="input-group-text">
-		    		  		<input type="checkbox"> 
-		    		  		<%= f.label :ubicacion, "Azotea" %> 
-		   		 		 </div>
-		   		 		
-		  			</div>
+				<div class="input-group sm-8">
+			  		 <div class="col-sm-12">
+			
+					<%= f.select :ubicacion, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(ubicacion) AS ubicacion FROM estacionamientos").collect {|e| [e.ubicacion, e.ubicacion]}, selected: @ubicacion ), { :include_blank => "Seleccione Ubicación" }, { :class => "form-control" } %>
+					</div>
 		 		 
 				</div>
-			</div>
+		</div>
 
 			<div class="form-group">
 				<div class="col-sm-4">
 				<%= f.label :puntuacion, "Puntuación:" %>
 				</div>
-			<div class="col-sm-7">
-				<%= f.select :distrito, [["1"], ["2"], ["3"], ["4"], ["5"]], { :include_blank => "Seleccione"}, {:class => "form-control"}  %>
+			<div class="col-sm-8">
+				<%= f.select :puntuacion, options_for_select(Comentario.find_by_sql(
+					"select distinct c.puntuacion from estacionamientos e join comentarios c on e.id = c.id").collect{|e|[e.puntuacion,e.puntuacion]}, selected: @puntuacion) , { :include_blank => "Sin Puntuación"}, {:class => "form-control"}  %>
 			</div>
 			</div>
 
@@ -124,8 +105,8 @@
 				<div class="col-sm-4">
 				<%= f.label :telefono, estacionamiento.numerotelefono %>
 				</div>
-				<div class="col-sm-2">
-				<%= link_to "Alquilar", {controller: "alquileres", action: "registro" }, :id => estacionamiento.id, :class =>"btn btn-success" %>
+				<div class="col-sm-2">				
+				<%= link_to "Alquilar", {controller: "alquileres", action: "registro",:id => estacionamiento.id }, :class =>"btn btn-success" %>
 				
 				
 				</div>

@@ -5,10 +5,11 @@
 
 	<div class="form-group">	
 		<div class= "col-sm-2">
-			<%= f.label :distrito, "Distrito:" %>
+			<%= f.label :distrito, "distritoito:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :distrito, [["San Miguel", "San Miguel"], ["Barranco", "Barranco"], ["Breña", "Breña"], ["Miraflores", "Miraflores"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+		
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @is_distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
 		</div>
 
 		<div class="col-sm-2">
@@ -50,7 +51,7 @@
 			<%= f.label :hora, "Hora:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :hora, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Horario"}, {:class => "form-control"}  %>
+			<%= f.select :hora, [["8:00 AM","8"], ["9:00 AM","9"], ["10:00 AM","10"],["11:00 AM","11"],["12:00 PM","12"],["13:00 PM","13"],["14:00 PM","14"],["15:00 PM","15"],["16:00 PM","16"],["17:00 PM","17"],["18:00 PM","18"],["19:00 PM","19"],["20:00 PM","20"],["21:00 PM","21"],[ "22:00 PM","22"],["23:00 PM","23"]], { :include_blank => "Seleccione Hora"}, {:class => "form-control"}  %>
 		</div>
 	</div>
 
@@ -74,8 +75,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-4 col-sm-2">
 			
-	
-			<%= submit_tag "Buscar Estacionamiento", :name => nil, :class => "btn btn-info"%>
+			<%= f.submit "Buscar Estacionamiento", :class => "btn btn-info"%>
 		</div>
 
 	</div>

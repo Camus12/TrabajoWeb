@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'alquileres/lista'
   get 'alquileres/registro'
-
+  get 'alquileres/save_alquiler'
   get 'serviciosadicionales/estacedicion'
   get 'serviciosadicionales/estaclista'
   

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigopersona: 1
+  codigoestacionamiento: 1
+  puntuacion: 1
+  comentario: MyString
+  codigocomentariopadre: 1
+
+two:
+  codigopersona: 1
+  codigoestacionamiento: 1
+  puntuacion: 1
+  comentario: MyString
+  codigocomentariopadre: 1
