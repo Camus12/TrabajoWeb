@@ -1,0 +1,146 @@
+<h1>Viendo un Estacionamiento</h1>
+
+<style type="text/css">
+	table, td, th { vertical-align: middle; border: none; }
+	th { border-bottom: 1px solid #DDD; }
+</style>
+
+<div class="form-horizontal">
+	
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Nombre:</strong>
+		</div>
+		<div class="col-sm-6">
+			<%= @estacionamiento.nombredescriptivo %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Dirección:</strong>
+		</div>
+		<div class="col-sm-10">
+			<%= @estacionamiento.direccion %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Google Maps:</strong>
+		</div>
+		<div class="col-sm-10">
+			<%= @estacionamiento.direcciongooglemaps %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<div class="col-sm-4">
+					<strong>Distrito:</strong>
+				</div>
+				<div class="col-sm-7">
+					<%= @estacionamiento.distrito %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<strong>Teléfono:</strong>
+				</div>
+				<div class="col-sm-4">
+					<%= @estacionamiento.numerotelefono %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<strong>Precio por Hora:</strong>
+				</div>
+				<div class="col-sm-3">
+					<%= @estacionamiento.precioporhora %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<strong>Dimensiones:</strong>
+				</div>
+				<div class="col-sm-2">
+					<strong>Largo:</strong><br />
+					<%= @estacionamiento.largo %>
+				</div>
+				<div class="col-sm-2">
+					<strong>Ancho:</strong><br />
+					<%= @estacionamiento.ancho %>
+				</div>
+				<div class="col-sm-2">
+					<strong>Altura:</strong><br />
+					<%= @estacionamiento.altura %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<strong>Tipo:</strong>
+				</div>
+				<div class="col-sm-4">
+					<%= @estacionamiento.tipo %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<strong>Ubicación:</strong>
+				</div>
+				<div class="col-sm-4">
+					<%= @estacionamiento.ubicacion %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">		
+					<%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
+				</div>
+				<div class="col-sm-4">
+					<%= link_to 'Editar', { :action => :edit, :id => @estacionamiento.id }, :class => "btn btn-primary" %>
+				</div>
+			</div>
+
+			<br />
+
+			<div class="form-group">
+				<h3>Fotos</h3>
+				
+				<% @estacionamiento.estacionamientoimagens.in_groups_of(3) do |group| %>
+				  <div class="row">
+				    <% group.compact.each do |foto| %>
+				      <div class="col-md-4">
+				        <%= image_tag foto.foto_url, width: '100%' if foto.foto.present?%>
+				        <%= link_to 'Eliminar Foto', [foto.estacionamiento, foto],
+				               :method => :delete,
+				               :data => { :confirm => '¿Estás seguro?' } %>
+				      </div>
+				    <% end %>
+				  </div>
+				<% end %>				
+
+				<h3>Agregar foto:</h3>
+				<%= render "estacionamientoimagens/form" %>
+			</div>
+
+		</div>
+
+		<div class="col-sm-6">
+
+			<div class="form-group">
+				<%= content_tag(:iframe, '', src: @is_direcciongooglemaps, width: 400, height: 250, frameborder: 0, style: "border:0", allowfullscreen: "allowfullscreen") %>
+			</div>
+
+
+		</div>
+			
+	</div>
+
+</div>

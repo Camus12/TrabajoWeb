@@ -1,0 +1,150 @@
+		
+<head> 
+</head>
+
+<body>
+<h1>Registro de Alquiler</h1>
+<%= form_for :upc, url: { action: "save_alquiler" }, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+<div>
+	 
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    		
+    </div> 
+  </div>
+ 
+
+</div>
+<div>
+		<%= f.hidden_field :codigoestacionamiento, :value => @estacionamiento.id %>
+		<%= f.hidden_field :codigopersona, :value => current_persona.id %>
+		<%= f.hidden_field :precioporhora, :value => @estacionamiento.precioporhora %>
+	<div class="form-group">
+		<div class=" col-sm-6">
+			<%= image_tag("Img1.jpg", :alt => "Los Portales",size: "530x380", :crop => :fill) %>
+		</div>
+		<div class=" col-sm-6">
+			<div class="form-group">
+			<div class=" col-sm-6">
+			<%= f.label :descripcion, "Nombre Descriptivo:" %>
+			</div>
+			<div class="col-sm-6">
+				<%= f.label :descripcion, @estacionamiento.nombredescriptivo %>
+			</div>
+			</div>
+			<div class="form-group">
+			<div class="col-sm-6">
+				<%= f.label :fecha, "Fecha de Reserva:" %>
+			</div>
+			<div class="col-sm-6">				
+				<%= f.text_field :fecha, { :class => "form-control", :placeholder => "Fecha" , value:"26/01/2019" } %>
+			</div>
+</div>
+			<div>
+				<div class="form-group">
+				<div class=" col-sm-6">
+
+					<%= f.label :hora, "Hora de Reserva:" %>
+				</div>
+				<div class="col-sm-6">					
+				<%= f.text_field :hora, { :class => "form-control", :placeholder => "Fecha" , value:"15:00" } %>
+				
+		
+				</div>
+			</div>
+
+
+
+
+			<div class="form-group">
+				<div class=" col-sm-6">
+					<%= f.label :servicioadicional, "Servicios Adicionales:" %>
+				</div>
+				<div class="input-group mb-6">
+			  		<div class="input-group-prepend">
+			  			<%= f.collection_check_boxes :publish_to, [['Lavado de auto'], ['Encerado'], ['Cambio de aceite'], ['Aspirado']], :first, :first do |b| %>
+						  <div class="input-group-text">
+						    <%= b.check_box %>
+						    <%= b.label %>    
+						  </div>
+						<% end %>		  				 
+		  			</div>
+		 		 
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class=" col-sm-6">
+					<%= f.label :pagofin, "Monto Final:" %>
+				</div>
+				<div class="col-sm-6">
+					<%= f.label :pagofin, "S/ %0.2f" % @estacionamiento.precioporhora %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-2">
+					<%= f.submit "Alquilar Estacionamiento", :class => "btn btn-primary"%>
+				</div>
+
+			</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+</div>
+
+<div>
+	
+	<div>
+		<div class="form-group">
+			<div class="col-sm-12">
+			<%= f.label :direccion, "Ubicación en mapa:" %>
+			</div>
+					
+		</div>
+
+		<div class="form-group">
+		
+			<div class="col-sm-12">
+			<%= f.label :direccion, "Av. Primavera 2456 - Surco" %>
+			</div>
+					
+		</div>
+		
+		<div class="form-group" >
+			<div class="col-sm-4">
+				<iframe width="400" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Universidad%20Peruana%20de%20Ciencias%20Aplicadas&key=AIzaSyA-mX5Z7eJL5GKASzo5gSNavXxX748a5Y4" allowfullscreen></iframe>
+			</div>
+			<div  class="col-sm8">
+				<p>Comentarios</p>
+				
+				<div class="col-sm-8">
+					<p>. Es un lugar limpio y ordenado. Cuenta con servicios higienicos para los usuariosy seguridad </p>
+				</div>
+				
+				<div class="col-sm-8">
+					
+					<p>. El establecimiento cuenta con servicios adicionales de calidad. Solo seria bueno que emitan factura </p>
+				</div>
+
+				<div class="col-sm-8">
+					
+					<p>. El lugar es seguro y cuenta con seguridad que trabaja las 24 horas. Por el precio que tiene diría que es la mejor opcion, considerando el distrito dond estan</p>
+				</div>
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+
+</div>
+	
+<% end %>
+</body>

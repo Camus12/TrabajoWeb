@@ -1,0 +1,74 @@
+<h1>Lista de Estacionamientos</h1>
+
+<%= form_for :estacionamiento, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :distrito, "Distrito:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @is_distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :tipo, "Tipo:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.select :tipo, options_for_select([["Interior", "INTER"], ["Exterior", "EXTER"], ["Aire Libre", "AIRE"]], selected: @is_tipo), { :include_blank => "Seleccione Tipo" }, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-2">
+			<%= f.label :ubicacion, "Ubicación:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.select :ubicacion, options_for_select([["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], selected: @is_ubicacion), { :include_blank => "Seleccione Ubicacion" }, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-2">
+			<%= f.submit "Buscar", :class => "btn btn-primary"%>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to "Registrar", { :action => "new" }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
+		    <thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Distrito</th>
+					<th>Dirección</th>
+					<th>Tipo</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+		    </thead>
+		    <tbody>
+
+		    	<% @estacionamientos.each do |estacionamiento| %>
+		    	<tr>
+					<td><%= estacionamiento.nombredescriptivo %></td>
+					<td><%= estacionamiento.distrito %></td>
+					<td><%= estacionamiento.direccion %></td>
+					<td><%= estacionamiento.tipo %></td>
+					<td><%= link_to "Ver", :action => :show, :id => estacionamiento.id %></td>
+					<td><%= link_to "Editar", :action => :edit, :id => estacionamiento.id %></td>
+					<td><%= link_to "Eliminar", { :action => :destroy, :id => estacionamiento.id }, :method => :delete, :data => { :confirm => '¿Estas seguro?' } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista", :id => estacionamiento.id } %></td>
+				</tr>
+		    	<% end %>
+		    	
+		    </tbody>
+	  	</table>
+	</div>
+
+<% end %>

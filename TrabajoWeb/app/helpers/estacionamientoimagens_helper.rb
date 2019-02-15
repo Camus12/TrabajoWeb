@@ -1,0 +1,2 @@
+module EstacionamientoimagensHelper
+end

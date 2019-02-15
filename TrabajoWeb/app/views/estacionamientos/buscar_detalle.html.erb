@@ -1,0 +1,124 @@
+<h1>Muestra detalle de Estacionamientos</h1>
+
+
+<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+	<div class="col-sm-3">
+
+		<h1>Filtros </h1>
+		
+		<div class="form-group">
+			<div class="col-sm-4">
+				<%= f.label :distrito, "Distrito:" %>
+			</div>
+		<div class="col-sm-8">
+			
+
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class=" col-sm-4">
+					<%= f.label :tipo, "Tipo:" %>
+			</div>
+			<div class="input-group col-sm-8">
+			  	<div class="col-sm-12">
+			
+					<%= f.select :tipo, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(tipo) AS tipo FROM estacionamientos").collect {|e| [e.tipo, e.tipo]}, selected: @tipo ), { :include_blank => "Seleccione Tipo" }, { :class => "form-control" } %>
+				</div>
+		 		 
+			</div>
+		</div>
+
+		<div class="form-group">
+				<div class=" col-sm-4">
+					<%= f.label :ubicacion, "Ubicación:" %>
+				</div>
+				<div class="input-group sm-8">
+			  		 <div class="col-sm-12">
+			
+					<%= f.select :ubicacion, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(ubicacion) AS ubicacion FROM estacionamientos").collect {|e| [e.ubicacion, e.ubicacion]}, selected: @ubicacion ), { :include_blank => "Seleccione Ubicación" }, { :class => "form-control" } %>
+					</div>
+		 		 
+				</div>
+		</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+				<%= f.label :puntuacion, "Puntuación:" %>
+				</div>
+			<div class="col-sm-8">
+				<%= f.select :puntuacion, options_for_select(Comentario.find_by_sql(
+					"select distinct c.puntuacion from estacionamientos e join comentarios c on e.id = c.id").collect{|e|[e.puntuacion,e.puntuacion]}, selected: @puntuacion) , { :include_blank => "Sin Puntuación"}, {:class => "form-control"}  %>
+			</div>
+			</div>
+
+			<div class="col-sm-offset-4 col-sm-6">
+				<%= f.submit "Buscar", :class => "btn btn-primary"%>
+			</div>
+
+	</div>
+
+ <div class="col-sm-9">
+
+ 	<% @estacionamientos.each do |estacionamiento| %>
+ 		<div class="col-sm-11" >
+ 		 	
+ 		<div class="col-sm-3">
+ 			<%= image_tag("Img1.jpg", :alt => "Los Portales",size: "180x180") %>
+ 		</div>
+ 	
+
+	 	<div class="col-sm-6">
+	 			<div class="form-group">
+					<div class= "col-sm-8">
+					<%= f.label :descripcion, estacionamiento.nombredescriptivo  %>
+					</div>
+	
+				</div>
+
+				<div class="form-group">
+					<div class= "col-sm-8">
+					<%= f.label :direccion, estacionamiento.direccion + " - " + estacionamiento.distrito %>
+					</div>
+	
+				</div>
+
+			<div class="form-group">
+				<div class= "col-sm-6">
+				<%= f.label :dimensiones, estacionamiento.largo.to_s + "m x " + estacionamiento.ancho.to_s + "m x " + estacionamiento.altura.to_s + "m " %>
+				</div>
+				<div class= "col-sm-3">
+				<%= f.label :Tipo, estacionamiento.tipo %>
+				</div>
+				<div class= "col-sm-3">
+				<%= f.label :Ubicación, estacionamiento.ubicacion %>
+				</div>
+
+			</div>
+
+   			<div class="form-group">
+				<div class="col-sm-5">
+				<%= f.label :preciohora, " S/ " + estacionamiento.precioporhora.to_s + " por hora" %>
+				</div>
+				<div class="col-sm-4">
+				<%= f.label :telefono, estacionamiento.numerotelefono %>
+				</div>
+				<div class="col-sm-2">				
+				<%= link_to "Alquilar", {controller: "alquileres", action: "registro",:id => estacionamiento.id }, :class =>"btn btn-success" %>
+				
+				
+				</div>
+
+			</div>
+
+		</div>	
+	</div>	
+	    
+ <% end %> 
+
+</div>
+		
+<% end %>
+

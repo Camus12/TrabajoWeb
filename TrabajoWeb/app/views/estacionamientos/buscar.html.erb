@@ -1,0 +1,83 @@
+<h1>Buscar Estacionamientos</h1>
+
+
+<%= form_for :upc, url: { action: "buscar_detalle" }, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+
+	<div class="form-group">	
+		<div class= "col-sm-2">
+			<%= f.label :distrito, "distritoito:" %>
+		</div>
+		<div class="col-sm-4">
+		
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @is_distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
+		</div>
+
+		<div class="col-sm-2">
+			<%= f.label :fechaini, "Fecha de Inicio:" %>
+		</div>
+
+		<div class="col-sm-2">
+			<%= f.date_field(:fechaini, value: Date.today) %>
+		</div>
+		
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :tipo, "Tipo:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :tipo, [["Interior", "INTER"], ["Exterior", "EXTER"], ["Aire Libre", "AIRE"]], { :include_blank => "Seleccione Tipo"}, {:class => "form-control"}  %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.label :fechafin, "Fecha Final:" %>
+		</div>
+
+		<div class="col-sm-2">
+			<%= f.date_field(:fechafin, value: Date.today) %>
+		</div>
+
+
+	</div>
+
+		<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :ubicacion, "Ubicación:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :ubicacion, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.label :hora, "Hora:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :hora, [["8:00 AM","8"], ["9:00 AM","9"], ["10:00 AM","10"],["11:00 AM","11"],["12:00 PM","12"],["13:00 PM","13"],["14:00 PM","14"],["15:00 PM","15"],["16:00 PM","16"],["17:00 PM","17"],["18:00 PM","18"],["19:00 PM","19"],["20:00 PM","20"],["21:00 PM","21"],[ "22:00 PM","22"],["23:00 PM","23"]], { :include_blank => "Seleccione Hora"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+					<%= f.label :precio, "Precio por hora:" %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.text_field :precio, { :class => "form-control", :placeholder => "Precio" } %>
+		</div>
+
+
+		<div class="col-sm-2">
+			<%= f.label :puntuacion, "Puntuación:" %>
+		</div>
+		<div class="col-sm-4">
+			<%= f.select :puntuacion,  [["1"], ["2"], ["3"],["4"],["5"]], { :include_blank => "Seleccione Puntuación"}, {:class => "form-control"}  %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-2">
+			
+			<%= f.submit "Buscar Estacionamiento", :class => "btn btn-info"%>
+		</div>
+
+	</div>
+
+<% end %>

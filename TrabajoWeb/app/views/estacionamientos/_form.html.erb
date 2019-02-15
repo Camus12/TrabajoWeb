@@ -1,0 +1,127 @@
+
+<%= form_for @estacionamiento, :html => {:class => "form-horizontal"} do |f| %>
+	
+	<% if @estacionamiento.errors.any? %>
+		<div id="errorExplanation">
+		    <h2><%= pluralize(@estacionamiento.errors.count, "errores") %> impidieron
+		      que el estacionamiento fuera grabado:</h2>
+		    <ul>
+			    <% @estacionamiento.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+		    </ul>
+		</div>
+	<% end %>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :nombredescriptivo, "Nombre:" %>
+		</div>
+		<div class="col-sm-6">
+			<%= f.text_field :nombredescriptivo, { :class => "form-control", :placeholder => "Ingrese Nombre del Estacionamiento" } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :direccion, "Dirección:" %>
+		</div>
+		<div class="col-sm-10">
+			<%= f.text_field :direccion, { :class => "form-control", :placeholder => "Ingrese la Dirección" } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<%= f.label :direcciongooglemaps, "Google Maps:" %>
+		</div>
+		<div class="col-sm-10">
+			<%= f.text_field :direcciongooglemaps, { :class => "form-control", :placeholder => "Ingrese la Dirección del Google Maps" } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<div class="col-sm-4">
+					<%= f.label :distrito, "Distrito:" %>
+				</div>
+				<div class="col-sm-7">
+					<%= f.text_field :distrito, { :class => "form-control", :placeholder => "Ingrese el Distrito" } %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<%= f.label :numerotelefono, "Teléfono:" %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.text_field :numerotelefono, { :class => "form-control", :placeholder => "Ingrese el Teléfono" } %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<%= f.label :precioporhora, "Precio por hora:" %>
+				</div>
+				<div class="col-sm-3">
+					<%= f.text_field :precioporhora, { :type => "number", :class => "form-control", :placeholder => "Precio" } %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<%= f.label "Dimensiones:" %>
+				</div>
+				<div class="col-sm-2">
+					<%= f.label :largo %>
+					<%= f.text_field :largo, { :type => "number", :class => "form-control" } %>
+				</div>
+				<div class="col-sm-2">
+					<%= f.label :ancho %>
+					<%= f.text_field :ancho, { :type => "number", :class => "form-control" } %>
+				</div>
+				<div class="col-sm-2">
+					<%= f.label :altura %>
+					<%= f.text_field :altura, { :type => "number", :class => "form-control" } %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<%= f.label :tipo, "Tipo:" %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.select :tipo, [["Interior", "INTER"], ["Exterior", "EXTER"], ["Aire Libre", "AIRE"]], { :include_blank => "Seleccione Tipo"}, {:class => "form-control"}  %>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-4">
+					<%= f.label :ubicacion, "Ubicación:" %>
+				</div>
+				<div class="col-sm-4">
+					<%= f.select :ubicacion, [["Primer Piso", "PISO1"], ["Azotea", "AZOT"], ["Sótano", "SOTAN"]], { :include_blank => "Seleccione Ubicación"}, {:class => "form-control"}  %>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= content_tag(:iframe, '', src: @is_direcciongooglemaps, width: 400, height: 250, frameborder: 0, style: "border:0", allowfullscreen: "allowfullscreen") %>
+			</div>
+		</div>
+			
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-2">
+			<%= f.submit "Guardar", :class => "btn btn-primary"%>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+
+<% end %>

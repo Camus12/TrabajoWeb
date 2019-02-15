@@ -1,0 +1,39 @@
+<h1>Viendo un Servicio Adicional</h1>
+
+<%= form_for :serviciosadicionales, :html => {:method => :get, :class => "form-horizontal"} do |f| %>
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Código:</strong>
+		</div>
+		<div class="col-sm-4">
+			<%= @servicioadicional.id %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+	  		<strong>Tipo:</strong>
+	  	</div>
+		<div class="col-sm-4">
+	  		<%= @servicioadicional.tiposervicio %>
+	  	</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-2">
+			<strong>Descripción:</strong>
+		</div>
+		<div class="col-sm-4">	
+			<%= @servicioadicional.descripcion %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-2">		
+			<%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
+		</div>
+		<div class="col-sm-2">
+			<%= link_to 'Editar', { :action => :edit, :id => @servicioadicional.id }, :class => "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>

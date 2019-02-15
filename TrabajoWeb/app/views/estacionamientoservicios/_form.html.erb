@@ -1,0 +1,25 @@
+<%= form_for([@estacionamiento, @estacionamiento.estacionamientoservicios.build]) do |f| %>
+	  
+	<div class="form-group">
+		<div class="col-sm-1">
+			<%= f.label :serviciosadicionale_id, "Servicio:" %>
+		</div>
+		<div class="col-sm-4">
+    		<%= f.select :serviciosadicionale_id, options_for_select(Estacionamiento.find_by_sql("SELECT id, tiposervicio FROM serviciosadicionales").collect {|e| [e.tiposervicio, e.id]}), { :include_blank => "Seleccione Servicio" }, { :class => "form-control" } %>
+    	</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-1">
+			<%= f.label :tarifa, "Tarifa:" %>
+		</div>
+		<div class="col-sm-2">
+			<%= f.text_field :tarifa, { :type => "number", :class => "form-control" } %>
+		</div>
+	</div>
+
+	<div class="col-sm-2">
+		<%= f.submit "Guardar Servicio", :class => "btn btn-success"%>
+	</div>
+	
+<% end %>

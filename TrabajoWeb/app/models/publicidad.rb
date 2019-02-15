@@ -1,0 +1,2 @@
+class Publicidad < ApplicationRecord
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tarifa: 9.99
+  estacionamiento: one
+  serviciosadicionale: one
+
+two:
+  tarifa: 9.99
+  estacionamiento: two
+  serviciosadicionale: two
