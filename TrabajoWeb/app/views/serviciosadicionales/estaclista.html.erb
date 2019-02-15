@@ -1,19 +1,13 @@
 <h1>Servicios Adicionales del Estacionamiento</h1>
 
-<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+<div class="form-horizontal">
 	
 	<div class="form-group">
 		<div class="col-sm-2">
-			<%= f.label :Estacionamiento, "Estacionamiento:" %>
+			<strong>Estacionamiento:</strong>
 		</div>
-		<div class="col-sm-6">
-			<%= f.text_field :Estacionamiento, { :class => "form-control", :disabled => true } %>
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<div class="col-sm-offset-10 col-sm-2">
-			<%= link_to "Registrar", { :controller => "serviciosadicionales", :action => "estacedicion", :a => "N" }, :class => "btn btn-primary" %>
+		<div class="col-sm-6">		
+			<%= text_field_tag :Estacionamiento, @estacionamiento.nombredescriptivo, { :class => "form-control", :disabled => true } %>
 		</div>
 	</div>
 	
@@ -29,6 +23,21 @@
 				</tr>
 		    </thead>
 		    <tbody>
+
+		    	<% @estacionamiento.estacionamientoservicios.each do |servicio| %>
+				<tr>
+					<td><%= servicio.serviciosadicionale_id %></td>
+					<td><%= servicio.tarifa %></td>
+				  	<td></td>
+				  	<td></td>
+				  	<td>
+				  		<%= link_to 'Eliminar', [servicio.estacionamiento, servicio],
+				               :method => :delete,
+				               :data => { :confirm => '¿Estás seguro?' } %>
+				  	</td>
+				</tr>
+				<% end %>
+
 				<tr>
 					<td>Lavado de Vehículo</td>
 					<td>10.00</td>
@@ -36,22 +45,14 @@
 					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
 					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
 				</tr>
-				<tr>
-					<td>Revisión de LLantas</td>
-					<td>2.00</td>
-					<td>Con medida de presión</td>
-					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
-					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
-				</tr>
-				<tr>
-					<td>Encerado</td>
-					<td>30.00</td>
-					<td>Usamos productos Sonax</td>
-					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
-					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
-				</tr>
 		    </tbody>
 	  	</table>
 	</div>
 	
-<% end %>
+	<h2>Agregar Servicios Adicionales:</h2>
+	<%= render "estacionamientoservicios/form" %>
+	
+	<div class="col-sm-4">		
+		<%= link_to 'Retroceder', { :controller => :estacionamientos, :action => :index }, :class => "btn btn-primary" %>
+	</div>
+</div>

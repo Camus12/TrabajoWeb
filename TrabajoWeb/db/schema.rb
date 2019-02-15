@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_022556) do
+ActiveRecord::Schema.define(version: 2019_02_15_004538) do
 
   create_table "admins", force: :cascade do |t|
     t.string "codigo"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 2019_02_12_022556) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "distrito"
+  end
+
+  create_table "estacionamientoservicios", force: :cascade do |t|
+    t.decimal "tarifa"
+    t.integer "estacionamiento_id"
+    t.integer "serviciosadicionale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estacionamiento_id"], name: "index_estacionamientoservicios_on_estacionamiento_id"
+    t.index ["serviciosadicionale_id"], name: "index_estacionamientoservicios_on_serviciosadicionale_id"
   end
 
   create_table "personas", force: :cascade do |t|

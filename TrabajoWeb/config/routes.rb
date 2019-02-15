@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   #resources "estacionamientos"
   resources :estacionamientos do
     resources :estacionamientoimagens
+    resources :estacionamientoservicios
   end
 
   resources "serviciosadicionales"

@@ -1,0 +1,9 @@
+<%= form_for([@estacionamiento, @estacionamiento.estacionamientoimagens.build]) do |f| %>
+  <p>
+    <%= f.label :foto %><br />
+    <%= f.file_field :foto, id: :estacionamiento_foto %>
+  </p>
+  <p>
+    <%= f.submit "Guardar Foto", :class => "btn btn-success"%>
+  </p>
+<% end %>

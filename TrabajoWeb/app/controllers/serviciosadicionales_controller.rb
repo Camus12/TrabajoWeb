@@ -46,10 +46,11 @@ class ServiciosadicionalesController < ApplicationController
     @serviciosadicionales = Serviciosadicionale.all.where("codigopersona = " + session[:persona_id].to_s)
   end
 
-  def estacedicion
+  def estaclista
+    @estacionamiento = Estacionamiento.find(params[:id])
   end
 
-  def estaclista
+  def estacedicion
   end
 
 private

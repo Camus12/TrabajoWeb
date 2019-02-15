@@ -1,5 +1,18 @@
 
 <%= form_for @servicioadicional, :html => {:class => "form-horizontal"} do |f| %>
+	
+	<% if @servicioadicional.errors.any? %>
+		<div id="errorExplanation">
+		    <h2><%= pluralize(@servicioadicional.errors.count, "errores") %> impidieron
+		      que el servicio fuera grabado:</h2>
+		    <ul>
+			    <% @servicioadicional.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+		    </ul>
+		</div>
+	<% end %>
+
 	<div class="form-group">
 		<div class="col-sm-2">
 			<%= f.label :tiposervicio, "Tipo:" %>

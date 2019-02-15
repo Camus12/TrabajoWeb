@@ -63,7 +63,7 @@
 					<td><%= link_to "Ver", :action => :show, :id => estacionamiento.id %></td>
 					<td><%= link_to "Editar", :action => :edit, :id => estacionamiento.id %></td>
 					<td><%= link_to "Eliminar", { :action => :destroy, :id => estacionamiento.id }, :method => :delete, :data => { :confirm => '¿Estas seguro?' } %></td>
-					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista" } %></td>
+					<td><%= link_to "Serv. Adicionales", { :controller => "serviciosadicionales", :action => "estaclista", :id => estacionamiento.id } %></td>
 				</tr>
 		    	<% end %>
 		    	
