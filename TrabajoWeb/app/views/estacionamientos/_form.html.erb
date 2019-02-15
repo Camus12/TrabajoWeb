@@ -65,7 +65,7 @@
 					<%= f.label :precioporhora, "Precio por hora:" %>
 				</div>
 				<div class="col-sm-3">
-					<%= f.text_field :precioporhora, { :type => "number", :class => "form-control", :placeholder => "Precio" } %>
+					<%= f.number_field :precioporhora, { :class => "form-control", :placeholder => "Precio", step: :any } %>
 				</div>
 			</div>
 

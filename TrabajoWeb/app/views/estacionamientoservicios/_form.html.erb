@@ -1,11 +1,24 @@
+
 <%= form_for([@estacionamiento, @estacionamiento.estacionamientoservicios.build]) do |f| %>
-	  
+	
+	<% if @estacionamiento.estacionamientoservicios.build.errors.any? %>
+		
+		<div id="errorExplanation">
+		    <h2><%= pluralize(@estacionamiento.estacionamientoservicios.build.errors.count, "errores") %> impidieron que el servicio fuera grabado:</h2>
+		    <ul>
+			    <% @estacionamiento.estacionamientoservicios.build.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+		    </ul>
+		</div>
+	<% end %>
+
 	<div class="form-group">
 		<div class="col-sm-1">
 			<%= f.label :serviciosadicionale_id, "Servicio:" %>
 		</div>
 		<div class="col-sm-4">
-    		<%= f.select :serviciosadicionale_id, options_for_select(Estacionamiento.find_by_sql("SELECT id, tiposervicio FROM serviciosadicionales").collect {|e| [e.tiposervicio, e.id]}), { :include_blank => "Seleccione Servicio" }, { :class => "form-control" } %>
+    		<%= f.select :serviciosadicionale_id, options_for_select(Estacionamiento.find_by_sql("SELECT id, tiposervicio FROM serviciosadicionales WHERE codigopersona = " + @estacionamiento.codigopersona.to_s).collect {|e| [e.tiposervicio, e.id]}), { :include_blank => "Seleccione Servicio" }, { :class => "form-control" } %>
     	</div>
 	</div>
 
@@ -14,7 +27,7 @@
 			<%= f.label :tarifa, "Tarifa:" %>
 		</div>
 		<div class="col-sm-2">
-			<%= f.text_field :tarifa, { :type => "number", :class => "form-control" } %>
+			<%= f.number_field :tarifa, { :class => "form-control", step: :any } %>
 		</div>
 	</div>
 

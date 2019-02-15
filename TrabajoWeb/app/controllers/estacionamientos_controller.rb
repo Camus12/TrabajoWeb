@@ -48,6 +48,8 @@ class EstacionamientosController < ApplicationController
 
   def index
     @is_distrito = ""
+    @is_tipo = ""
+    @is_ubicacion = ""
 
     if params[:estacionamiento] != nil then
       ls_select = "SELECT * FROM estacionamientos WHERE codigopersona = " + session[:persona_id].to_s
