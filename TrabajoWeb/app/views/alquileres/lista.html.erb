@@ -1,20 +1,20 @@
 <h1>Lista de Alquileres</h1>
 
-<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
+<%= form_for :alquiler, :html => { :method => :get, :class => "form-horizontal" } do |f| %>
 	
 	<div class="form-group">
 		<div class="col-sm-offset-3 col-sm-2">
 			<%= f.label :fechadesde, "Alquiler desde:" %>
 		</div>
 		<div class="col-sm-2">
-			<%= f.date_field(:fechadesde, value: Date.today) %>
+			<%= f.date_field(:fechadesde, value: @is_fechadesde) %>
 		</div>
 		
 		<div class="col-sm-1">
 			<%= f.label :fechahasta, "hasta:" %>
 		</div>
 		<div class="col-sm-2">
-			<%= f.date_field(:fechahasta, value: Date.today) %>
+			<%= f.date_field(:fechahasta, value: @is_fechahasta) %>
 		</div>
 	</div>
 	
@@ -23,7 +23,7 @@
 			<%= f.label :distrito, "Distrito:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :distrito, [["La Molina", "1"], ["Jesus Maria", "2"], ["Pueblo Libre", "3"]], { :include_blank => "Seleccione Distrito"}, {:class => "form-control"}  %>
+			<%= f.select :distrito, options_for_select(Estacionamiento.find_by_sql("SELECT DISTINCT upper(distrito) AS distrito FROM estacionamientos").collect {|e| [e.distrito, e.distrito]}, selected: @is_distrito ), { :include_blank => "Seleccione Distrito" }, { :class => "form-control" } %>
 		</div>
 	</div>
 	
@@ -32,8 +32,7 @@
 			<%= f.label :estacionamiento, "Estacionamiento:" %>
 		</div>
 		<div class="col-sm-4">
-			<%= f.select :estacionamiento, [["Estacionamiento Don Pedrito", "1"], ["Los Portalitos", "2"], 
-				["Estac. Los Suspiros", "3"], ["Particular", "4"]], { :include_blank => "Seleccione Estacionamiento"}, {:class => "form-control"}  %>
+			<%= f.select :estacionamiento, options_for_select(Estacionamiento.find_by_sql("SELECT id, nombredescriptivo FROM estacionamientos WHERE codigopersona = " + current_persona.id.to_s).collect {|e| [e.nombredescriptivo, e.id]}, selected: @is_estacionamiento), { :include_blank => "Seleccione Estacionamiento" }, { :class => "form-control" } %>
 		</div>
 	</div>
 	
@@ -48,41 +47,26 @@
 		    <thead>
 				<tr>
 					<th>Estacionamiento</th>
-					<th>Fecha</th>
-					<th>Hora</th>
+					<th>Fecha Inicio</th>
+					<th>Hora Inicio</th>
+					<th>Fecha Fin</th>
+					<th>Hora Fin</th>
 				</tr>
 		    </thead>
 		    <tbody>
-				<tr>
-					<td>Estacionamiento Don Pedrito</td>
-					<td>12/01/2019</td>
-					<td>08:00 a.m.</td>
+
+		    	<% @alquileres.each do |alquiler| %>
+		    	<tr>
+					<td><%= Estacionamiento.select(:nombredescriptivo).where("id = " + alquiler.codigoestacionamiento.to_s).collect(&:nombredescriptivo)[0] %></td>
+
+					<td><%= alquiler.inicioalquiler.strftime("%d/%m/%Y") %></td>
+					<td><%= alquiler.inicioalquiler.strftime("%I:%M%p") %></td>
+
+					<td><%= alquiler.finalquiler.strftime("%d/%m/%Y") %></td>
+					<td><%= alquiler.finalquiler.strftime("%I:%M%p") %></td>
 				</tr>
-				<tr>
-					<td>Estacionamiento Don Pedrito</td>
-					<td>12/01/2019</td>
-					<td>10:00 a.m.</td>
-				</tr>
-				<tr>
-					<td>Estacionamiento Don Pedrito</td>
-					<td>12/01/2019</td>
-					<td>12:00 p.m.</td>
-				</tr>
-				<tr>
-					<td>Estacionamiento Don Pedrito</td>
-					<td>12/01/2019</td>
-					<td>03:00 p.m.</td>
-				</tr>
-				<tr>
-					<td>Los Portalitos</td>
-					<td>11/01/2019</td>
-					<td>09:00 a.m.</td>
-				</tr>
-				<tr>
-					<td>Los Portalitos</td>
-					<td>11/01/2019</td>
-					<td>11:00 a.m.</td>
-				</tr>
+		    	<% end %>
+				
 		    </tbody>
 	  	</table>
 	</div>

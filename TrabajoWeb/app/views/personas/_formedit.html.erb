@@ -1,5 +1,4 @@
 
-
 <%= form_for @persona, :html => {:class => "form-horizontal"} do |f| %>  
 <div class ="form-group">
 		<div class = "col-sm-2">
@@ -40,41 +39,35 @@
 		<div class ="col-sm-2">
 		<%=f.label :sexo,"Sexo" %> 
 		</div>
-		<div class="col-sm-10">
-			<label class="radio-inline"><input type="radio" name="Tipo" checked>Hombre</label>
-			<label class="radio-inline"><input type="radio" name="Tipo" checked>Mujer</label>
-
+		<div class="col-sm-3">
+							<%= f.select :sexo, [["Hombre",true],["Mujer",false]], { :include_blank => "Seleccione Sexo"},{:class => "form-control"} %>
 		</div> 
+
+<div class ="col-sm-1">
+			<%=f.label :distrito,"Distrito" %>
+		</div>
+		<div class ="col-sm-4">
+			<%=f.text_field :distrito, { :class => " form-control", :placeholder => "Ingrese Distrito"} %>
+		</div>
+
 	</div> 
 
 	<div class ="form-group">
 		<div class ="col-sm-2">
 			<%=f.label :tipodocumento,"Tipo de Documento" %>
 		</div>
-		<div class ="col-sm-4">
+		<div class ="col-sm-3">
 			<%= f.select :tipodocumento, [["DNI",1],["Pasaporte",2],["CarneExtra",3]], { :include_blank => "Seleccione Tipo Doc"},{:class => "form-control"} %>
 		</div>
 
 		
-		<div class="col-sm-4">
+		<div class="col-sm-5">
 			<%=f.text_field :numerodocumento,{ :class => "form-control", :placeholder =>"Ingrese Numero de Documento"} %>
 		</div>
 
 	</div>
 
-		<div class ="form-group">
-		<div class ="col-sm-2">
-			<%=f.label :distrito,"Distrito" %>
-		</div>
-		<div class ="col-sm-4">
-			<%= f.select :distrito, [["San Luis",1],["San Borja",2],["Surco",3]], { :include_blank => "Seleccione Distrito"},{:class => "form-control"} %>
-		</div>
-
 		
-		
-
-	</div>
-
 
 	  <div class ="form-group">
 		<div class ="col-sm-2">
@@ -134,11 +127,8 @@
 		
    
         <div class="col-sm-6">
-        <div class="input-append date" id="dp3" data-date="01-01-2019" data-date-format="dd-mm-yyyy">
-  <input class="span2" size="16" type="text" value="01-01-2019">
-  <span class="add-on"><i class="icon-th"></i></span>
-</div>
-    </div>
+        	<%= f.date_field(:fechanacimiento) %>
+    	</div>
 
 	</div>
 

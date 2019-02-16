@@ -1,6 +1,6 @@
 <div >
 	<h1 class="text-center">Estacionamiento</h1><br><br>
-<%= form_for @hola do |f| %>
+	<%= form_for :upc, :html => { :method => :get, :class => "form-horizontal" }, :url => { :controller => "estacionamientos", :action => "lista" } do |f| %>
 	<div class="form-group">
 
 		<div class="col-sm-4">
@@ -46,32 +46,32 @@
 				<td><p>Moises: </p><br>
 				<p>Atencion excelente por parte del dueño.</p>
 				</td>
-				<td><%= link_to "Responder", { :controller => "publicidads", :action => "index" } %></td>
+				<td><%= link_to "Responder", { :controller => "publicidad", :action => "edicion" } %></td>
 			</tr>
 			<tr>
 				<td><p>Moises: </p><br>
 					<p>Atencion excelente por parte del dueño.</p>
 				</td>
-				<td><%= link_to "Responder", { :controller => "publicidads", :action => "index" } %></td>
+				<td><%= link_to "Responder", { :controller => "publicidad", :action => "edicion" } %></td>
 			</tr>
 			<tr>
 				<td><p>Moises: </p><br>
 					<p>Atencion excelente por parte del dueño.</p>
 				</td>
-				<td><%= link_to "Responder", { :controller => "publicidads", :action => "index" } %></td>
+				<td><%= link_to "Responder", { :controller => "publicidad", :action => "edicion" } %></td>
 			</tr>
 			<tr>
 				<td>
 					<%= f.text_area :detalles, { :rows => 4, :class => "form-control" , :placeholder => "Ingresar nuevo comentario."} %>
 				</td>
-				<td><%= link_to "Comentar", { :controller => "publicidads", :action => "index" } %></td>
+				<td><%= link_to "Comentar", { :controller => "publicidad", :action => "edicion" } %></td>
 			</tr>
 		</tbody>
 	</table>
 	<div class="form-group">
 		<div class="text-center">
 			<%= f.submit "Guardar", :class => "btn btn-primary"%>
-			<%= link_to "Salir", { :controller => "publicidads", :action => "new"}, :class => "btn btn-primary" %> <!--por definir la salida-->
+			<%= link_to "Salir", { :controller => "administrador", :action => "principal"}, :class => "btn btn-primary" %> <!--por definir la salida-->
 		</div>
 	</div>
 <% end %>

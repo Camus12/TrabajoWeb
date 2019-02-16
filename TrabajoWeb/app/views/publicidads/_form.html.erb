@@ -11,9 +11,11 @@
     <div class="col-sm-5">
     <%= form.text_field :nombredescriptivo , { :class => "form-control", :placeholder => "Descripción de aviso"} %>
     </div>
+
     <div class="col-sm-3">
     &nbsp;
     </div>
+
   </div>
   <div class="form-group">
 
@@ -23,9 +25,11 @@
     <div class="col-sm-5">
       <%= form.text_field :nombrecliente, { :class => "form-control" , :placeholder => "Razon social de la empresa"} %>
     </div>
+
     <div class="col-sm-3">
     &nbsp;
     </div>
+
   </div>
 
   <div class="form-group">
@@ -37,8 +41,13 @@
       <%= form.text_field :imagen, { :class => "form-control", :placeholder => "Ingrese ruta"} %>
     </div>
 
+
     <div class="col-sm-4">
     &nbsp;
+
+    <div class="col-sm-1">
+      <%= form.submit "Buscar", :class => "btn"%>
+
     </div>
   </div>
 
@@ -54,6 +63,7 @@
     <div class="col-sm-6">
     &nbsp;
     </div>
+
   </div>
 
   <div class="form-group">
@@ -64,9 +74,11 @@
     <div class="col-sm-2">
       <%= form.select :ubicacion, [["Arrendador", 1],["Arrendatario", 2],["General", 2]] , { :include_blank => "Seleccione" } , {:class => "form-control"} %>
     </div>
+
     <div class="col-sm-6">
     &nbsp;
     </div>
+
 
   </div>
 
@@ -78,9 +90,11 @@
     <div class="col-sm-2">
       <%= form.select :frecuencia, [["Intensivo", 1],["Medio", 2],["Ligero", 3]] , { :include_blank => "Seleccione" } , {:class => "form-control"} %>
     </div>
+
     <div class="col-sm-6">
     &nbsp;
     </div>
+
   </div>
 
 
@@ -92,10 +106,14 @@
     <div class="col-sm-5">
       <%= form.text_field :fecha, { :class => "form-control", :placeholder => "Descripción de aviso"} %>
     </div>
+
     <div class="col-sm-3">
     &nbsp;
     </div>
     <!--
+=======
+
+>>>>>>> 7a136a7b19532f960744254ab298584b2de8fa7d
     <div class="col-sm-1">
       Desde 
     </div>
@@ -123,7 +141,9 @@
                     </span>
             </div>
     </div>
+<<<<<<< HEAD
   -->
+
   </div>
 
   <div class="form-group">
@@ -134,9 +154,11 @@
     <div class="col-sm-4">
       <%= form.text_field :enlace, { :class => "form-control", :placeholder => "URL del Cliente"} %>
     </div>
+
     <div class="col-sm-4">
     &nbsp;
     </div>
+
   </div>
 
   <div class="form-group">
@@ -148,9 +170,11 @@
     <div class="col-sm-2">
       <%= form.select :estado, [["Activado", 1],["Desactivado", 2]] , { :include_blank => "Seleccione" } , {:class => "form-control"} %>
     </div>
+
     <div class="col-sm-6">
     &nbsp;
     </div>
+
     
   </div>
 
@@ -160,9 +184,11 @@
     <div class="col-sm-offset-2 col-sm-2">
       <%= form.label :detalles , "Detalles:" %>
     </div>
+
     <div class="col-sm-8">
     &nbsp;
     </div>
+
 
   </div>
 
@@ -170,6 +196,7 @@
     <div class="col-sm-offset-2 col-sm-7">
     <%= form.text_area :detalles, { :rows => 4, :class => "form-control" , :placeholder => "URL del Cliente"} %>
     </div>
+
     <div class="col-sm-3">
     &nbsp;
     </div>
@@ -178,6 +205,7 @@
   <div class="actions">
      <%= form.submit "Publicar", :class => "btn btn-primary" %> 
      <%= link_to 'Retroceder', { :action => :index }, :class => "btn btn-primary" %>
+
   </div>
 <% end %>
 </div>

@@ -15,7 +15,7 @@ class PersonasController < ApplicationController
     @persona = Persona.new(persona_params)
 
     if @persona.save
-      redirect_to :action => :index, :id => @persona.id
+      redirect_to :controller => :sessions, :action => :new, :id => @persona.id
     else
       render "new"  
     end
@@ -23,6 +23,7 @@ class PersonasController < ApplicationController
 
 
   def show
+       @persona = Persona.find(params[:id])
   end
 
   def edit
@@ -40,13 +41,12 @@ class PersonasController < ApplicationController
     end
   end
 
-   def bajausuariopost
+   def destroy
     #puts params[:DarmeBaja][:id]
-    puts @personabaja
-    @persona = Persona.find(@personabaja)
+    @persona = Persona.find(params[:id])
     @persona.destroy
 
-    redirect_to :action => :index
+    redirect_to :controller => :personas, :action => :index
    end
 
 

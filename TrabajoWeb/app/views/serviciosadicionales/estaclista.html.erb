@@ -19,17 +19,15 @@
 					<th>Tarifa</th>
 					<th>Descripción</th>
 					<th></th>
-					<th></th>
 				</tr>
 		    </thead>
 		    <tbody>
 
 		    	<% @estacionamiento.estacionamientoservicios.each do |servicio| %>
 				<tr>
-					<td><%= servicio.serviciosadicionale_id %></td>
+					<td><%= Serviciosadicionale.select(:tiposervicio).where("id = " + servicio.serviciosadicionale_id.to_s).collect(&:tiposervicio)[0] %></td>
 					<td><%= servicio.tarifa %></td>
-				  	<td></td>
-				  	<td></td>
+				  	<td><%= Serviciosadicionale.select(:descripcion).where("id = " + servicio.serviciosadicionale_id.to_s).collect(&:descripcion)[0] %></td>
 				  	<td>
 				  		<%= link_to 'Eliminar', [servicio.estacionamiento, servicio],
 				               :method => :delete,
@@ -38,13 +36,6 @@
 				</tr>
 				<% end %>
 
-				<tr>
-					<td>Lavado de Vehículo</td>
-					<td>10.00</td>
-					<td>Con agua a presión y champú</td>
-					<td><%= link_to "Editar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
-					<td><%= link_to "Eliminar", { :controller => "serviciosadicionales", :action => "estacedicion" } %></td>
-				</tr>
 		    </tbody>
 	  	</table>
 	</div>

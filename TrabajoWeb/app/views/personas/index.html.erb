@@ -26,7 +26,7 @@
 					<td><%= persona.tipousuario %></td>
 					<td><%= link_to "Ver", :action => :show, :id => persona.id %></td>
 					<td><%= link_to "Editar", :action => :edit, :id => persona.id %></td>
-					<td><%= link_to "Eliminar", { :action => :bajausuario, :id => persona.id } %></td>
+				<td><%= link_to "Eliminar", { :action => :destroy, :id => persona.id }, :method => :delete, :data => { :confirm => '¿Estas seguro?' } %></td>
 				</tr>
 		    	<% end %>
 		    </tbody>

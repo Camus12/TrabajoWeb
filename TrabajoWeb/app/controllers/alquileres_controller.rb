@@ -2,6 +2,43 @@ class AlquileresController < ApplicationController
   layout 'dueno'
   
   def lista
+    @is_distrito = ""
+    @is_estacionamiento = ""
+    @is_fechadesde = Date.today.to_s
+    @is_fechahasta = Date.today.to_s
+
+    ls_select = "SELECT * FROM alquilers WHERE codigoestacionamiento IN (select id from estacionamientos where codigopersona = " + session[:persona_id].to_s
+
+    ls_where = ""
+    
+    if params[:alquiler] != nil then
+      @is_distrito = params[:alquiler][:distrito]
+      @is_estacionamiento = params[:alquiler][:estacionamiento]
+      @is_fechadesde = params[:alquiler][:fechadesde]
+      @is_fechahasta = params[:alquiler][:fechahasta]
+    end
+
+    if @is_distrito != "" then
+      ls_where = ls_where + " and lower(distrito) = '" + @is_distrito.downcase + "')"
+    else
+      ls_where = ls_where + ")"
+    end
+      
+    if @is_estacionamiento != "" then
+      ls_where = ls_where + " AND codigoestacionamiento = " + @is_estacionamiento
+    end
+
+    if @is_fechadesde != "" then
+      ls_where = ls_where + " AND inicioalquiler >= date('" + @is_fechadesde + "')"
+    end
+
+    if @is_fechahasta != "" then
+      ls_where = ls_where + " AND inicioalquiler < date('" + @is_fechahasta + "', '+1 days')"
+    end
+
+    ls_select = ls_select + ls_where
+
+    @alquileres = Alquiler.find_by_sql(ls_select)
   end
 
   def new

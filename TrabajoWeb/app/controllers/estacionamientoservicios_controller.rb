@@ -1,8 +1,9 @@
 class EstacionamientoserviciosController < ApplicationController
 	def create
 	    @estacionamiento = Estacionamiento.find(params[:estacionamiento_id])
-	    @servicio = @estacionamiento.estacionamientoservicios.create(servicio_params)
-	    redirect_to :controller => :serviciosadicionales, :action => :estaclista, :id => @estacionamiento.id
+	    if @servicio = @estacionamiento.estacionamientoservicios.create(servicio_params)
+	    	redirect_to :controller => :serviciosadicionales, :action => :estaclista, :id => @estacionamiento.id
+	    end
 	end
     
 	def destroy

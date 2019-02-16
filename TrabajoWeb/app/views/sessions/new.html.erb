@@ -10,10 +10,15 @@
 
       <%= f.label :contraseña %>
       <%= f.password_field :contraseña, class: 'form-control' %>
-
+ <div class ="form-group">
+      <div class ="col-sm-2">
+      </div>
+    </div>
       <%= f.submit "Log in", class: "btn btn-primary" %>
     <% end %>
 
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
+
+
